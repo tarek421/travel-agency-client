@@ -1,0 +1,15 @@
+.navbar{
+    height: 70px;
+}
+
+.navbar-nav .nav-link {
+    font-size: 15px;
+    color: white !important;
+    font-weight: 700;
+    margin-right: 35px;
+    text-transform: uppercase;
+}
+
+.navbar-nav .active{
+    color: orange !important;
+}

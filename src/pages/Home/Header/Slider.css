@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400;1,500;1,700;1,900&family=Secular+One&display=swap");
+
+#app {
+  height: 100%;
+}
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slider,
+.slider2 {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.slider .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.slider2 .content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.slider .content h1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+  font-family: "Secular One", sans-serif;
+  margin-bottom: 10px;
+}
+
+.slider2 .content h1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #fff;
+  font-family: "Secular One", sans-serif;
+  margin-bottom: 10px;
+}
+
+.slider .content h1 span {
+  color: #f4b843;
+}
+
+.slider2 .content h1 span {
+  color: #f4b843;
+}
+
+.slider .content h5 {
+  font-style: italic;
+  color: white;
+}
+
+.slider2 .content h5 {
+  font-style: italic;
+  color: white;
+}
+
+.slider {
+  background-image:url("../../../image/banner-1.jpg");
+}
+
+.slider2 {
+  background-image:url("../../../image/banner-2.jpg");
+}
+

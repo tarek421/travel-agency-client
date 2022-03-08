@@ -1,5 +1,4 @@
 import React from "react";
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -10,27 +9,10 @@ import "swiper/css/navigation";
 
 import "./Slider.css";
 
-// import banner1 from '../../../image/banner-1.jpg'
-// import banner2 from '../../../image/banner-2.jpg'
-// import slider3 from '../../../image/slider-3.jpg'
-
 // import required modules
 import { EffectFade, Autoplay, Pagination, Navigation } from "swiper";
 
 const Slider = () => {
-
-  // const sliders = [
-  //   {
-  //     title: 'TAKE YOUR DREAM',
-  //     content: 'Your travel, your life',
-  //     img: `${banner1}`
-  //   },
-  //   {
-  //     title: 'ADVENTURE IS WORTHWHILE',
-  //     content: 'For my part, I travel not to go anywhere, I travel for travel shake. The great affeir is to move.',
-  //     img: `${banner2}`
-  //   }
-  // ]
 
   return (
     <>
@@ -45,15 +27,10 @@ const Slider = () => {
         pagination={{
           clickable: true
         }}
-        navigation={true}
+        // navigation={true}
         modules={[EffectFade, Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-
-        {/* 
-        {
-          sliders.map(slider => <SwiperSlide><img src={slider1} alt="" /></SwiperSlide>)
-        } */}
 
         <SwiperSlide>
           <div className="slider">
@@ -72,15 +49,6 @@ const Slider = () => {
             </div>
           </div>
         </SwiperSlide>
-
-
-
-        {/* <SwiperSlide>
-          <img src={slider2} alt="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src={slider3} alt="" />
-        </SwiperSlide> */}
       </Swiper>
     </>
   );

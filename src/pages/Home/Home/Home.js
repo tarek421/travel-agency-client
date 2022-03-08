@@ -1,12 +1,12 @@
 import React from 'react';
-import Destination from '../Destination/Destination';
+import Destinations from '../Destinations/Destinations';
 import Header from '../Header/Header';
 
 const Home = () => {
    return (
       <div>
          <Header/>
-         <Destination/>
+         <Destinations/>
       </div>
    );
 };

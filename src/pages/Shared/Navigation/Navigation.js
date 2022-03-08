@@ -19,22 +19,19 @@ const Navigation = () => {
 		});
 	}); 
    return (
-      <nav id="navbar_top" class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a href="#home" class="navbar-brand">Brand</a>
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
+      <nav id="navbar_top" className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="container">
+            <a href="#home" className="navbar-brand">Travel Agency</a>
+            <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span className="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto">
-                    <a href="#home" class="nav-item nav-link active">Home</a>
-                    <a href="#home" class="nav-item nav-link">Profile</a>
-                    <a href="#home" class="nav-item nav-link">Messages</a>
-                    <a href="#home" class="nav-item nav-link disabled" tabindex="-1">Reports</a>
+            <div className="collapse navbar-collapse" id="navbarCollapse">
+                <div className="navbar-nav ms-auto">
+                    <a href="#home" className="nav-item nav-link active">Home</a>
+                    <a href="#home" className="nav-item nav-link">Profile</a>
+                    <a href="#home" className="nav-item nav-link">Messages</a>
+                    <a href="#home" className="nav-item nav-link disabled" tabIndex="-1">Reports</a>
                 </div>
-                {/* <div class="navbar-nav ms-auto">
-                    <a href="#home" class="nav-item nav-link">Login</a>
-                </div> */}
             </div>
         </div>
     </nav>

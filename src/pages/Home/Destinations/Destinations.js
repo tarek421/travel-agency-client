@@ -2,7 +2,12 @@ import React from 'react';
 import shape from '../../../image/shape.png'
 import Destination from '../Destination/Destination';
 import './Destinatons.css';
-import toronto from '../../../image/pexels-aleksandar-pasaric-1285625.jpg';
+import toronto from '../../../image/torento.jpg';
+import mumbai from '../../../image/mumbai.jpg';
+import sydney from '../../../image/sydney.jpg';
+import newyork from '../../../image/newyork.jpg';
+import machupichu from '../../../image/machupichu.jpg';
+import parish from '../../../image/parish.jpg';
 
 const Destinations = () => {
 
@@ -22,18 +27,45 @@ const Destinations = () => {
             rating: 5,
             duration: 'Duration: 2 Hours',
             open: 'Opening: 8Am - 10Am',
-            img: `${toronto}`,
+            img: `${mumbai}`,
             description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum esse optio saepe vitae beatae perspiciatis cum, totam obcaecati ducimus dolorem quia. Atque laudantium maxime laborum mollitia itaque deleniti facilis quos sit eius culpa reiciendis fugiat praesentium quisquam voluptatum in minus, autem nulla! Quia quas consequatur soluta? Quasi ut harum sunt!'
         },
         {
             id: 3,
-            title: 'TORONTO',
+            title: 'sydney',
             rating: 5,
             duration: 'Duration: 2 Hours',
             open: 'Opening: 8Am - 10Am',
-            img: `${toronto}`,
+            img: `${sydney}`,
             description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum esse optio saepe vitae beatae perspiciatis cum, totam obcaecati ducimus dolorem quia. Atque laudantium maxime laborum mollitia itaque deleniti facilis quos sit eius culpa reiciendis fugiat praesentium quisquam voluptatum in minus, autem nulla! Quia quas consequatur soluta? Quasi ut harum sunt!'
-        }
+        },
+        {
+            id: 4,
+            title: 'NEWYORK',
+            rating: 5,
+            duration: 'Duration: 2 Hours',
+            open: 'Opening: 8Am - 10Am',
+            img: `${newyork}`,
+            description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum esse optio saepe vitae beatae perspiciatis cum, totam obcaecati ducimus dolorem quia. Atque laudantium maxime laborum mollitia itaque deleniti facilis quos sit eius culpa reiciendis fugiat praesentium quisquam voluptatum in minus, autem nulla! Quia quas consequatur soluta? Quasi ut harum sunt!'
+        },
+        {
+            id: 5,
+            title: 'MACHU PICHU',
+            rating: 5,
+            duration: 'Duration: 2 Hours',
+            open: 'Opening: 8Am - 10Am',
+            img: `${machupichu}`,
+            description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum esse optio saepe vitae beatae perspiciatis cum, totam obcaecati ducimus dolorem quia. Atque laudantium maxime laborum mollitia itaque deleniti facilis quos sit eius culpa reiciendis fugiat praesentium quisquam voluptatum in minus, autem nulla! Quia quas consequatur soluta? Quasi ut harum sunt!'
+        },
+        {
+            id: 6,
+            title: 'PARISH',
+            rating: 5,
+            duration: 'Duration: 2 Hours',
+            open: 'Opening: 8Am - 10Am',
+            img: `${parish}`,
+            description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum esse optio saepe vitae beatae perspiciatis cum, totam obcaecati ducimus dolorem quia. Atque laudantium maxime laborum mollitia itaque deleniti facilis quos sit eius culpa reiciendis fugiat praesentium quisquam voluptatum in minus, autem nulla! Quia quas consequatur soluta? Quasi ut harum sunt!'
+        },
     ]
     return (
         <div id='destination'>

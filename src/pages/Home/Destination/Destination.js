@@ -4,7 +4,7 @@ import './Destination.css';
 const Destination = ({destination}) => {
     const {title, img, duration} = destination;
     return (
-        <div class="col-md-4 col-sm-12">
+        <div class="col-md-4 col-sm-12 mt-3">
                 <div class="main-box">
                     <div class="box">
                         <img src={img} alt="" />

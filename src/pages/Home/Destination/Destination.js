@@ -1,10 +1,14 @@
 import React from 'react';
 import './Destination.css';
+import Ratings from './Rating';
+import { Fade } from 'react-reveal';
 
-const Destination = ({destination}) => {
-    const {title, img, duration} = destination;
+
+const Destination = ({ destination }) => {
+    const { title, img, duration, rating } = destination;
     return (
         <div class="col-md-4 col-sm-12 mt-3">
+            <Fade bottom>
                 <div class="main-box">
                     <div class="box">
                         <img src={img} alt="" />
@@ -15,14 +19,16 @@ const Destination = ({destination}) => {
                             </span>
                         </div>
                     </div>
-                    <div class="content">
+                    <div class="content mt-3">
                         <h4>{title}</h4>
-                        <h6>rating</h6>
+                        <h6><Ratings rating={rating} /></h6>
+                        <hr />
                         <p>{duration}</p>
                         <p>Opening: 8Am - 10Am</p>
                     </div>
                 </div>
-            </div>
+            </Fade>
+        </div>
     );
 };
 

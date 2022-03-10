@@ -1,5 +1,7 @@
 import React from 'react';
 import './Navigation.css';
+import logo from '../../../image/logo.png';
+import { Link } from 'react-router-dom';
 
 const Navigation = () => {
    document.addEventListener("DOMContentLoaded", function(){
@@ -21,16 +23,18 @@ const Navigation = () => {
    return (
       <nav id="navbar_top" className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
-            <a href="#home" className="navbar-brand">Travel Agency</a>
+            <a href="#home" className="navbar-brand"><img src={logo} alt="" /></a>
             <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                 <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarCollapse">
                 <div className="navbar-nav ms-auto">
-                    <a href="#home" className="nav-item nav-link active">Home</a>
-                    <a href="#home" className="nav-item nav-link">Profile</a>
-                    <a href="#home" className="nav-item nav-link">Messages</a>
-                    <a href="#home" className="nav-item nav-link disabled" tabIndex="-1">Reports</a>
+                    <Link to='/home' className="nav-item nav-link active">Home</Link>
+                    <Link to="/destination" className="nav-item nav-link">Destination</Link>
+                    <Link to="/gallery" className="nav-item nav-link">gallery</Link>
+                    <Link to="/about" className="nav-item nav-link" tabIndex="-1">About</Link>
+                    <Link to="/contact" className="nav-item nav-link" tabIndex="-1">Contact</Link>
+                    <Link to="/dashboard" className="nav-item nav-link" tabIndex="-1">Dashboard</Link>
                 </div>
             </div>
         </div>

@@ -33,7 +33,7 @@ const Destinations = () => {
         {
             id: 3,
             title: 'sydney',
-            rating: 5,
+            rating: 4,
             duration: 'Duration: 2 Hours',
             open: 'Opening: 8Am - 10Am',
             img: `${sydney}`,
@@ -51,7 +51,7 @@ const Destinations = () => {
         {
             id: 5,
             title: 'MACHU PICHU',
-            rating: 5,
+            rating: 4,
             duration: 'Duration: 2 Hours',
             open: 'Opening: 8Am - 10Am',
             img: `${machupichu}`,

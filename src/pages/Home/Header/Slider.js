@@ -11,6 +11,7 @@ import "./Slider.css";
 
 // import required modules
 import { EffectFade, Autoplay, Pagination, Navigation } from "swiper";
+import { Fade, Roll } from "react-reveal";
 
 const Slider = () => {
 
@@ -34,19 +35,27 @@ const Slider = () => {
 
         <SwiperSlide>
           <div className="slider">
+            <Fade  top cascade>
             <div className="content">
+              <Roll left>
                 <h1>TAKE <span>YOUR DREAM</span></h1>
-                <h5>Your travel, your life</h5>
+              </Roll>
+              <h5>Your travel, your life</h5>
             </div>
+            </Fade>
           </div>
         </SwiperSlide>
 
         <SwiperSlide>
           <div className="slider2">
+            <Fade top cascade>
             <div className="content">
-              <h1>ADVENTURE IS <span>WORTHWHILE</span></h1>
+              <Fade right>
+                <h1>ADVENTURE IS <span>WORTHWHILE</span></h1>
+              </Fade>
               <h5>For my part, I travel not to go anywhere, I travel for travel shake. The great affeir is to move.</h5>
             </div>
+            </Fade>
           </div>
         </SwiperSlide>
       </Swiper>

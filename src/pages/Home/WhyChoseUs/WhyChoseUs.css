@@ -1,0 +1,22 @@
+#why-chose-us{
+    padding: 100px 0;
+    background-color: #fff;
+}
+
+#why-chose-us .img-icon{
+    height: 80px;
+}
+
+#why-chose-us h1{
+    font-weight: 700;
+  }
+
+#why-chose-us h2{
+    font-weight: 600;
+    color: #292525d9;
+    font-size: 30px;
+}
+
+#why-chose-us p{
+    color: #292525d9;
+}

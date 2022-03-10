@@ -1,0 +1,48 @@
+#footer{
+    background: url(../../../image/banner-1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center center;
+    color: white;
+}
+
+#footer .blur{
+    background: rgba(0, 0, 0, 0.658);
+    padding: 100px 0;
+}
+
+#footer .content{
+    margin-top: 5px;
+    color: rgb(216 196 196 / 85%);
+    font-size: 15px;
+    line-height: 25px;
+    letter-spacing: 0.8px;
+}
+
+#footer ul{
+    padding-left: 0;
+}
+
+#footer .social-icon li {
+    color: #ccc;
+    line-height: 24px;
+    list-style: none;
+    margin-right: 25px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#footer li:hover{
+    color: orange;
+}
+
+#footer .links li{
+    list-style: none;
+    color: rgb(216 196 196 / 85%);
+    font-weight: 100;
+}
+
+#footer .links li span{
+    margin-left: 10px;
+}
+

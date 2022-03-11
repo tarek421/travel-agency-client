@@ -5,5 +5,8 @@
   font-family: 'Roboto', sans-serif;
 }
 
-
+.overly{
+  background: rgba(0, 0, 0, 0.658);
+  height: 100%;
+}
 

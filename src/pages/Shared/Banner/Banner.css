@@ -1,0 +1,21 @@
+#banner{
+    background-image: url(../../../image/banner-3.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 65vh;
+    position: relative;
+}
+
+#banner .content {
+    position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+#banner .overly {
+    background: rgb(0 0 0 / 80%);
+}

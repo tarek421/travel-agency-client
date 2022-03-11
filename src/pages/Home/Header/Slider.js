@@ -12,6 +12,8 @@ import "./Slider.css";
 // import required modules
 import { EffectFade, Autoplay, Pagination, Navigation } from "swiper";
 import { Fade, Roll } from "react-reveal";
+import Navigations from '../../Shared/Navigation/Navigation';
+
 
 const Slider = () => {
 
@@ -35,6 +37,7 @@ const Slider = () => {
 
         <SwiperSlide>
           <div className="slider">
+          <Navigations/>
             <Fade  top cascade>
             <div className="content">
               <Roll left>
@@ -48,6 +51,7 @@ const Slider = () => {
 
         <SwiperSlide>
           <div className="slider2">
+          <Navigations/>
             <Fade top cascade>
             <div className="content">
               <Fade right>

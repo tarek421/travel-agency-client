@@ -9,7 +9,7 @@ import './Footer.css';
 const Footer = () => {
    return (
       <div id="footer">
-         <div className="blur">
+         <div className="overly">
             <div className="container">
                <div className="row">
                   <div className="col-md-3 col-sm-12 col-xs-12">

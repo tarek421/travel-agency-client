@@ -1,11 +1,10 @@
 import React from 'react';
-import Navigation from '../../Shared/Navigation/Navigation';
 import Slider from './Slider';
 
 const Header = () => {
    return (
       <div>
-         <Navigation/>
+         {/* <Navigation/> */}
          <Slider/>
       </div>
    );

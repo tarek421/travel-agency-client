@@ -4,7 +4,6 @@ import Slider from './Slider';
 const Header = () => {
    return (
       <div>
-         {/* <Navigation/> */}
          <Slider/>
       </div>
    );

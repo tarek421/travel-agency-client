@@ -9,7 +9,10 @@
 }
 
 #destination .main-box {
-  padding: 10px;
+  padding-bottom: 10px;
+  background: #ecf1f6a6;
+  transition: all 0.5s;
+  border-radius: 5px;
 }
 
 #destination .main-box:hover {
@@ -212,7 +215,7 @@
   margin-bottom: 20px;
 }
 
-#destination .content p{
+#destination .content p {
   margin: 3px;
   color: #272525e0;
   font-weight: 600;
@@ -235,4 +238,3 @@
 #destination a:hover {
   text-decoration: none;
 }
-/*# sourceMappingURL=Destination.css.map */

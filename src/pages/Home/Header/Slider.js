@@ -10,7 +10,7 @@ import "swiper/css/navigation";
 import "./Slider.css";
 
 // import required modules
-import { EffectFade, Autoplay, Pagination, Navigation } from "swiper";
+import { EffectFade, Autoplay, Pagination } from "swiper";
 import { Fade, Roll } from "react-reveal";
 import Navigations from '../../Shared/Navigation/Navigation';
 
@@ -31,7 +31,7 @@ const Slider = () => {
           clickable: true
         }}
         // navigation={true}
-        modules={[EffectFade, Autoplay, Pagination, Navigation]}
+        modules={[EffectFade, Autoplay, Pagination]}
         className="mySwiper"
       >
 

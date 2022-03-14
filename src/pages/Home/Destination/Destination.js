@@ -6,18 +6,18 @@ import Ratings from './Rating';
 const Destination = ({ destination }) => {
     const { title, img, duration, rating } = destination;
     return (
-        <div class="col-md-4 col-sm-12 mt-3">
-                <div class="main-box">
-                    <div class="box">
+        <div className="col-md-4 col-sm-12 mt-3">
+                <div className="main-box">
+                    <div className="box">
                         <img src={img} alt="" />
-                        <div class="box-content">
-                            <h6 class="title">{title}</h6>
-                            <span class="post">
-                                <a href="#home" class="button">BOOK NOW</a>
+                        <div className="box-content">
+                            <h6 className="title">{title}</h6>
+                            <span className="post">
+                                <a href="#home" className="button">BOOK NOW</a>
                             </span>
                         </div>
                     </div>
-                    <div class="content mt-3">
+                    <div className="content mt-3">
                         <h4>{title}</h4>
                         <h6><Ratings rating={rating} /></h6>
                         <hr />

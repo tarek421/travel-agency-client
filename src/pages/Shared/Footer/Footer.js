@@ -3,7 +3,6 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import logo from '../../../image/logo.png';
-// import gallery1 from '../../../image/mumbai.jpg';
 import './Footer.css';
 
 const Footer = () => {

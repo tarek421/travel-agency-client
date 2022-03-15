@@ -1,6 +1,10 @@
 
-.nav-link:hover {
+/* .nav-link:hover {
     background-color: #525252 !important
+} */
+
+.dashboard a:hover {
+    color: #fff;
 }
 
 .nav-link .fa {
@@ -10,8 +14,3 @@
 .nav-link:hover .fa {
     transform: rotate(360deg)
 }
-
-@media (min-width: 1200px){
-.dashboard .container, .container-lg, .container-md, .container-sm, .container-xl {
-    max-width: 1250px;
-}}

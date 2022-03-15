@@ -16,6 +16,8 @@ import {
 import { Toaster } from 'react-hot-toast';
 import PrivetRoute from './pages/Login/PrivetRoute/PrivetRoute';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
+import MakeAdmin from './pages/Dashboard/MakeAdmin/MakeAdmin';
+import AddDestinaton from './pages/Dashboard/AddDestination/AddDestinaton';
 
 function App() {
   return (
@@ -31,7 +33,11 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/dashboard" element={<Dashboard />} /> 
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="makeAdmin" element={<MakeAdmin />}/>
+          <Route path="addDestination" element={<AddDestinaton />}/>
+          <Route path="myOrder" element={<AddDestinaton />}/>
+        </Route>
         <Route path="/login" element={<Login />} />
       </Routes>
     </AuthProvider>

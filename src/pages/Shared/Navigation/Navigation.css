@@ -13,3 +13,42 @@
 .navbar-nav .active{
     color: orange !important;
 }
+
+.bg-dark{
+    animation-name: fadeInDown;
+}
+
+.stricky-fixed {
+    background: #16171b !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    height: 80px;
+    line-height: 80px;
+}
+
+.fadeInDown {
+    -webkit-animation-name: fadeInDown 1s ease-in both;
+    animation-name: fadeInDown;
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    animation-delay: 1s;
+}
+
+@keyframes fadeInDown {
+	from {
+		opacity: 0;
+		transform: translate3d(0, -40%, 0);
+	}
+	to {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+	}
+}

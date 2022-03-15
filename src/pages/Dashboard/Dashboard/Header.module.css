@@ -1,0 +1,8 @@
+.active {
+    color: #fff;
+    display: block;
+    background: #0030dd;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+  }

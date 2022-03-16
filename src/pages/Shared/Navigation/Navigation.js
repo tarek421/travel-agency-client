@@ -9,26 +9,44 @@ const Navigation = () => {
     const handleLogOut = () => {
         logout();
     }
-    document.addEventListener("DOMContentLoaded", function () {
+    // document.addEventListener("DOMContentLoaded", function () {
 
-        window.addEventListener('scroll', function () {
+    //     window.addEventListener('scroll', function () {
 
-            if (window.scrollY > 200) {
-                document.getElementById('navbar_top').classList.add('stricky-fixed');
-                document.getElementById('navbar_top').classList.add('fadeInDown');
-                // add padding top to show content behind navbar
-                let navbar_height = document.querySelector('.navbar').offsetHeight;
-                document.body.style.paddingTop = navbar_height + 'px';
-            } else {
-                document.getElementById('navbar_top').classList.remove('stricky-fixed');
-                document.getElementById('navbar_top').classList.remove('fadeInDown');
-                // remove padding top from body
-                document.body.style.paddingTop = '0';
-            }
-        });
-    });
+    //         if (window.scrollY > 200) {
+    //             document.getElementById('navbar_top').classList.add('stricky-fixed');
+    //             document.getElementById('navbar_top').classList.add('fadeInDown');
+    //             // add padding top to show content behind navbar
+    //             let navbar_height = document.querySelector('.navbar').offsetHeight;
+    //             document.body.style.paddingTop = navbar_height + 'px';
+    //         } else {
+    //             document.getElementById('navbar_top').classList.remove('stricky-fixed');
+    //             document.getElementById('navbar_top').classList.remove('fadeInDown');
+    //             // remove padding top from body
+    //             document.body.style.paddingTop = '0';
+    //         }
+    //     });
+    // });
+
+
+// When the user scrolls down 200px from the top of the document, slide down the navbar
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+    document.getElementById("navbar").style.top = "0";
+    document.getElementById("navbar").style.background = "rgb(107 113 150)";
+  } else {
+    document.getElementById("navbar").style.top = "transparent";
+    document.getElementById("navbar").style.background = "";
+
+  }
+}
+
+
+
     return (
-        <nav id="navbar_top" className="navbar navbar-expand-lg navbar-dark animated">
+        <nav id="navbar" className="navbar navbar-expand-lg navbar-dark animated">
             <div className="container">
                 <a href="#home" className="navbar-brand"><img src={logo} alt="" /></a>
                 <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

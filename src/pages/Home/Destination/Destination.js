@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Destination.css';
 import Ratings from './Rating';
 
 
 const Destination = ({ destination }) => {
-    const { title, img, duration, rating } = destination;
+    const {id, title, img, duration, rating } = destination;
     return (
         <div className="col-md-4 col-sm-12 mt-3">
                 <div className="main-box">
@@ -13,7 +14,7 @@ const Destination = ({ destination }) => {
                         <div className="box-content">
                             <h6 className="title">{title}</h6>
                             <span className="post">
-                                <a href="#home" className="button">BOOK NOW</a>
+                                <Link to={`/destination/${title}`} className="button">BOOK NOW</Link>
                             </span>
                         </div>
                     </div>

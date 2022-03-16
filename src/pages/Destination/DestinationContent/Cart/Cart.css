@@ -1,0 +1,25 @@
+#cart .content button {
+  border: 1px solid #ddd;
+  padding: 3px 10px;
+  width: 40px;
+}
+
+#cart{
+    height: 400px;
+}
+
+#cart .header{
+    background-color: #2e7d32;
+    padding: 15px 0;
+    color: #fff;
+}
+
+#cart .header h4{
+    margin: 0;
+}
+
+#cart .content span {
+  width: 100px;
+  padding: 7px 25px;
+  background: #ddd;
+}

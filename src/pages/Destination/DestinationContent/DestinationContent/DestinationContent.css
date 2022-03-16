@@ -1,0 +1,12 @@
+#destination-content{
+    background-color: rgba(138, 139, 224, 0.5);
+    padding: 80px 0;
+}
+
+#destination-content h3{
+    margin: 0;
+}
+
+#destination-content img{
+    height: 400px;
+}

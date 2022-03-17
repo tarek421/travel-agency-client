@@ -7,6 +7,13 @@
     margin: 0;
 }
 
-#destination-content img{
+#destination-content .destination-header img, .destination-body img{
     height: 400px;
+}
+
+#destination-content .content p{
+    color: #111212ba;
+    font-weight: 300;
+    font-size: 16px;
+    font-style: italic;
 }

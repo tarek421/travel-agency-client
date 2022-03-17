@@ -13,6 +13,20 @@ const Dashboard = () => {
                 <hr />
                 <ul className="nav nav-pills flex-column mb-auto">
 
+                    <li>
+                        <NavLink to="myOrder" className={(navInfo) => navInfo.isActive ? classes.active : "nav-link text-white"}>
+                            <FontAwesomeIcon className='text-danger' icon={faFirstOrderAlt} />
+                            <span className="ms-2">My Orders</span>
+                        </NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink to="orders" className={(navInfo) => navInfo.isActive ? classes.active : "nav-link text-white"}>
+                        <FontAwesomeIcon className='text-danger' icon={faFirstOrderAlt} />
+                            <span className="ms-2">Orders</span>
+                        </NavLink>
+                    </li>
+
                     <li className="nav-item">
                         <NavLink to="addDestination" className={(navInfo) =>
                             navInfo.isActive ? classes.active : "nav-link text-white"
@@ -24,27 +38,11 @@ const Dashboard = () => {
 
                     <li>
                         <NavLink to="makeAdmin" className={(navInfo) => navInfo.isActive ? classes.active : "nav-link text-white"}>
-                        <FontAwesomeIcon className='text-danger'  icon={faSquarePlus} />
+                            <FontAwesomeIcon className='text-danger' icon={faSquarePlus} />
                             <span className="ms-2">Make Admin</span>
                         </NavLink>
                     </li>
 
-
-
-
-
-
-
-
-
-
-
-                    <li>
-                        <NavLink to="myOrder" className={(navInfo) => navInfo.isActive ? classes.active : "nav-link text-white"}>
-                        <FontAwesomeIcon className='text-danger' icon={faFirstOrderAlt} />
-                            <span className="ms-2">My Orders</span>
-                        </NavLink>
-                    </li>
                 </ul>
                 <hr />
                 <div className="dropdown"> <a href="#home" className="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false"> <img src="https://github.com/mdo.png" alt="" width="32" height="32" className="rounded-circle me-2" /> <strong> John W </strong> </a>
@@ -60,7 +58,7 @@ const Dashboard = () => {
                     </ul>
                 </div>
             </div>
-            <div className='w-100'>
+            <div className='w-100 position-relative'>
 
 
 

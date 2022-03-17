@@ -5,12 +5,12 @@ import Ratings from './Rating';
 
 
 const Destination = ({ destination }) => {
-    const {id, title, img, duration, rating } = destination;
+    const {title, img1, duration, rating } = destination;
     return (
         <div className="col-md-4 col-sm-12 mt-3">
                 <div className="main-box">
                     <div className="box">
-                        <img src={img} alt="" />
+                        <img src={img1} alt="" />
                         <div className="box-content">
                             <h6 className="title">{title}</h6>
                             <span className="post">

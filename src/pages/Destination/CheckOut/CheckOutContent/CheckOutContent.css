@@ -1,0 +1,22 @@
+#CheckOutContent input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px;
+}
+
+#CheckOutContent textarea {
+  width: 97%;
+  padding: 10px;
+  margin: 20px;
+}
+
+#CheckOutContent p{
+    margin-bottom: 2px;
+}
+
+#CheckOutContent span{
+    background: black;
+    color: white;
+    border-radius: 50%;
+    padding: 11px 20px;
+}

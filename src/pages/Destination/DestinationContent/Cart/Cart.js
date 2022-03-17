@@ -1,11 +1,14 @@
 import { Button } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { userContext } from '../../../../App';
 import './Cart.css';
 
+
 const Cart = () => {
-    const [adult, setAdult] = useState(1);
-    const [children, setChildren] = useState(0);
+
+    const {adult, setAdult, children, setChildren} = useContext(userContext);
+
     const total = adult*320 + children*250;
     const navigate = useNavigate();
 

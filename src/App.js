@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './pages/Home/Home/Home';
 import Destination from './pages/Destination/Destination/Destination';
-import Contact from './pages/Contact/Contact';
+import Contact from './pages/Contact/Contact/Contact';
 import Blog from './pages/Blog/Blog/Blog';
 import About from './pages/About/About/About';
 import Gallery from './pages/Gallary/Gallery/Gallery';

@@ -1,0 +1,16 @@
+#about-header .tagline {
+    font-family: 'Playfair Display';
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 30px;
+    display: block;
+    color: #222222;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#about-header .about-info-content p{
+    font-size: 15px;
+    line-height: 26px;
+    margin: 10px 0;
+}

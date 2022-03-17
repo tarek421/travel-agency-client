@@ -1,0 +1,37 @@
+#contact-content {
+  text-align: center;
+  padding: 80px 0px;
+}
+
+#contact-content h1 {
+  text-align: center;
+}
+
+#contact-content p {
+  text-align: center;
+}
+
+#contact-content .svg-inline--fa {
+  font-size: 40px;
+  padding: 10px;
+  color: var(--bs-orange);
+}
+
+#contact-content input[type="text"] {
+  width: 98%;
+  padding: 10px;
+}
+
+#contact-content textarea {
+  width: 99%;
+  height: 200px;
+  padding: 10px;
+  margin: 30px 6px;
+}
+
+#contact-content input[type="submit"] {
+  padding: 9px 25px;
+  border: 1px solid orange;
+  font-family: "Roboto";
+  color: #000000d6;
+}

@@ -1,10 +1,7 @@
 import React from 'react';
-import { destinations } from '../../../../Data/Data';
-import Destination from '../../../Home/Destination/Destination';
 import Cart from '../Cart/Cart';
 import './DestinationContent.css';
 import './socialIcon.css';
-import '../../../Home/Destination/Destination.css';
 
 const DestinationContent = ({ item }) => {
     const { title, description, img1, img2, img3 } = item;
@@ -66,15 +63,6 @@ const DestinationContent = ({ item }) => {
                         </div>
                     </div>
                 </div>
-
-                <h3>Related Tours</h3>
-                <hr />
-                <div className="row mt-5">
-                    {
-                        destinations.map(destination => <Destination destination={destination} key={destination.id}></Destination>)
-                    }
-                </div>
-
             </div>
         </div>
     );

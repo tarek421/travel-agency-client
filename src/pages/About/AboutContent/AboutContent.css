@@ -1,0 +1,14 @@
+#about-content {
+    background: rgba(194, 198, 209, 0.199);
+}
+
+#about-content .image-box img {
+    width: 100%;
+    height: auto;
+}
+
+#about-content .svg-inline--fa {
+    font-size: 15px;
+    font-weight: 700;
+    margin-right: 10px;
+}

@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import shape from '../../../image/shape.png'
 import Destination from '../Destination/Destination';
 import './Destinatons.css';
-import { destinations } from '../../../Data/Data';
 
 const Destinations = () => {
+    const [destinations, setDestinations] = useState([]);
+    console.log(destinations)
+    useEffect(() => {
+        const url = `http://localhost:5000/destinations`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setDestinations(data))
+    }, []);
     return (
         <div id='destination'>
             <div className="container">
@@ -13,7 +20,7 @@ const Destinations = () => {
                 <img src={shape} alt="" />
                 <div className="row mt-5">
                     {
-                        destinations.map(destination => <Destination destination={destination} key={destination.id}></Destination>)
+                        destinations.map(destination => <Destination destination={destination} key={destination._id}></Destination>)
                     }
                 </div>
             </div>

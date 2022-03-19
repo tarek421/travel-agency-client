@@ -9,24 +9,6 @@ const Navigation = () => {
     const handleLogOut = () => {
         logout();
     }
-    // document.addEventListener("DOMContentLoaded", function () {
-
-    //     window.addEventListener('scroll', function () {
-
-    //         if (window.scrollY > 200) {
-    //             document.getElementById('navbar_top').classList.add('stricky-fixed');
-    //             document.getElementById('navbar_top').classList.add('fadeInDown');
-    //             // add padding top to show content behind navbar
-    //             let navbar_height = document.querySelector('.navbar').offsetHeight;
-    //             document.body.style.paddingTop = navbar_height + 'px';
-    //         } else {
-    //             document.getElementById('navbar_top').classList.remove('stricky-fixed');
-    //             document.getElementById('navbar_top').classList.remove('fadeInDown');
-    //             // remove padding top from body
-    //             document.body.style.paddingTop = '0';
-    //         }
-    //     });
-    // });
 
 
 // When the user scrolls down 200px from the top of the document, slide down the navbar
@@ -38,7 +20,7 @@ function scrollFunction() {
     document.getElementById("navbar").style.background = "rgb(107 113 150)";
   } else {
     document.getElementById("navbar").style.top = "transparent";
-    document.getElementById("navbar").style.background = "";
+    document.getElementById("navbar").style.background = "transparent";
 
   }
 }
@@ -58,8 +40,6 @@ function scrollFunction() {
                         <NavLink to='/home' className={(navInfo) => navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link"}>Home</NavLink>
 
                         <NavLink to="/destination" className={(navInfo) => navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link"}>Destination</NavLink>
-
-                        <NavLink to="/gallery" className={(navInfo) => navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link"}>gallery</NavLink>
 
                         <NavLink to="/blog" className={(navInfo) => navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link"}>Blog</NavLink>
 

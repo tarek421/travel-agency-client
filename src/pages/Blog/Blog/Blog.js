@@ -6,7 +6,7 @@ import './Blog.css'
 const Blog = () => {
     return (
         <div>
-            <Banner title={"Blog List"} />
+            <Banner title={"Blog is Coming soon..."} />
             <Footer/>
         </div>
     );

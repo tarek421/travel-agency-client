@@ -3,8 +3,9 @@ import Cart from '../Cart/Cart';
 import './DestinationContent.css';
 import './socialIcon.css';
 
-const DestinationContent = ({ item }) => {
-    const { title, description, img1, img2, img3 } = item;
+const DestinationContent = ({ destination }) => {
+    const { title, description, image1, image2, image3 } = destination;
+    console.log(destination.title)
 
     return (
         <div id="destination-content">
@@ -13,7 +14,7 @@ const DestinationContent = ({ item }) => {
                     <h3 className='mb-3'>Special {title} Tour</h3>
                     <div className="row">
                         <div className="col-md-8 col-sm-12">
-                            <img className="w-100" src={img1} alt="" />
+                            <img className="w-100" src={image1} alt="" />
                             <div id="social-platforms">
                                 <b class="btn btn-icon btn-facebook"><i class="fa fa-facebook"></i><span>Facebook</span></b>
 
@@ -36,7 +37,7 @@ const DestinationContent = ({ item }) => {
                     <div className="row my-5 py-5">
                         <div className="col-md-7 col-sm-12">
                             <div className="image">
-                                <img src={img2} alt="" />
+                                <img src={image2} alt="" />
                             </div>
                         </div>
                         <div className="col-md-5 col-sm-12">
@@ -58,7 +59,7 @@ const DestinationContent = ({ item }) => {
                         </div>
                         <div className="col-md-7 col-sm-12">
                             <div className="image">
-                                <img src={img3} alt="" />
+                                <img src={image3} alt="" />
                             </div>
                         </div>
                     </div>

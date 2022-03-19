@@ -7,8 +7,10 @@
     margin: 0;
 }
 
-#destination-content .destination-header img, .destination-body img{
+#destination-content img{
     height: 400px;
+    width: 100%;
+    object-fit: cover;
 }
 
 #destination-content .content p{

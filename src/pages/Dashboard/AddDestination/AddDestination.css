@@ -1,0 +1,28 @@
+#add-destination input {
+    width: 100%;
+    padding: 10px;
+  }
+
+  #add-destination input[type="submit"] {
+    width: 62%;
+    margin: 20px;
+    background: cornflowerblue;
+    color: white;
+    border: 1px solid #ddd;
+}
+  
+  #add-destination textarea {
+    width: 97%;
+    padding: 10px;
+    margin: 0 10px;
+    margin-top: 20px;
+}
+  
+  #add-destination p{
+      margin-bottom: 2px;
+  }
+  
+  #add-destination span{
+      color: red;
+      padding: 11px 20px;
+  }

@@ -4,7 +4,6 @@ import Destination from './pages/Destination/Destination/Destination';
 import Contact from './pages/Contact/Contact/Contact';
 import Blog from './pages/Blog/Blog/Blog';
 import About from './pages/About/About/About';
-import Gallery from './pages/Gallary/Gallery/Gallery';
 import Login from './pages/Login/Login/Login';
 import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 
@@ -34,30 +33,29 @@ function App() {
   return (
     <AuthProvider>
       <userContext.Provider value={[adult, setAdult, children, setChildren]}>
-      <Toaster />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/checkOut" element={<CheckOut />} />
-        <Route path="/destination/:title" element={<DestinationDetail />} />
+        <Toaster />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/checkOut" element={<CheckOut />} />
+          <Route path="/destination/:title" element={<DestinationDetail />} />
 
-        <Route path="/destination" element={<PrivetRoute>
-          <Destination />
-        </PrivetRoute>} />
+          <Route path="/destination" element={<PrivetRoute>
+            <Destination />
+          </PrivetRoute>} />
 
-        <Route path="/dashboard" element={<Dashboard />}>
-          <Route path="makeAdmin" element={<MakeAdmin />} />
-          <Route path="addDestination" element={<AddDestinaton />} />
-          <Route path="myOrder" element={<MyOrder />} />
-          <Route path="orders" element={<Orders />} />
-        </Route>
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route path="makeAdmin" element={<MakeAdmin />} />
+            <Route path="addDestination" element={<AddDestinaton />} />
+            <Route path="myOrder" element={<MyOrder />} />
+            <Route path="orders" element={<Orders />} />
+          </Route>
 
-      </Routes>
+        </Routes>
       </userContext.Provider>
     </AuthProvider>
   );

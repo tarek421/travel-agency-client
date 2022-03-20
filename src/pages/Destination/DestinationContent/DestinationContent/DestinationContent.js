@@ -5,7 +5,6 @@ import './socialIcon.css';
 
 const DestinationContent = ({ destination }) => {
     const { title, description, image1, image2, image3 } = destination;
-    console.log(destination.title)
 
     return (
         <div id="destination-content">
@@ -28,7 +27,7 @@ const DestinationContent = ({ destination }) => {
                             </div>
                         </div>
                         <div className="col-md-4 col-sm-12">
-                            <Cart />
+                            <Cart title={title} />
                         </div>
                     </div>
                 </div>

@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import { destinations } from '../../../Data/Data';
 import Banner from '../../Shared/Banner/Banner';
 import Footer from '../../Shared/Footer/Footer';
 import DestinationContent from '../DestinationContent/DestinationContent/DestinationContent';
-// import Banner from '../../Shared/Banner/Banner';
-// import Footer from '../../Shared/Footer/Footer';
-// import DestinationContent from '../DestinationContent/DestinationContent';
+
 
 const DestinationDetail = () => {
     const [destination, setDestination] = useState([]);

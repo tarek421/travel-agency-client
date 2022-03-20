@@ -1,95 +1,162 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import { userContext } from '../../../../App';
+import useAuth from '../../../../Hooks/useAuth';
 import './CheckOutContent.css';
 
+const CheckOutContent = ({ title }) => {
 
-const CheckOutContent = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+
+    const [adult, setAdult, children] = useContext(userContext);
+    // console.log(children, adult, setAdult);
+    const { user } = useAuth();
+    const price = adult*320 + children*250;
+
+    const navigate = useNavigate();
+
+    const onSubmit = data => {
+
+        const loading = toast.loading("Please wait...", {
+            style: {
+                borderRadius: "10px",
+                background: "#333",
+                color: "#fff",
+            },
+        });
+        const userInfo = {
+            destinationName: title,
+            name: data.firstName + " " + data.lastName,
+            phone: data.phone,
+            email: data.email,
+            address: data.address,
+            city: data.city,
+            state: data.state,
+            postalCode: data.postalCode,
+            comment: data.comment,
+            adultPerson: adult,
+            childrenPerson: children,
+            price: price, 
+        }
+        console.log(userInfo);
+        const url = `http://localhost:5000/orders`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userInfo)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.dismiss(loading);
+                    toast.success("Thank you for your order!", {
+                        style: {
+                            borderRadius: "10px",
+                            background: "#333",
+                            color: "#fff",
+                        },
+                    });
+                    navigate('/');
+                }
+            })
+    };
     return (
         <div id="CheckOutContent" className="my-5">
             <div className="container">
-                <div className="row">
-                    <div className="border-start col-md-8 col-sm-12">
-                        <h3 className="mb-5"><span>1</span> Tour Details</h3>
+                <form className="mx-5" onSubmit={handleSubmit(onSubmit)}>
+                    <div className="row">
+                        <div className="border-start col-md-8 col-sm-12">
+                            <h3 className="mb-5"><span>1</span> Tour Details</h3>
 
-                        <form className="mx-5" onSubmit={handleSubmit(onSubmit)}>
                             <div className="mb-3 d-flex justify-content-between">
                                 <div className="w-50 px-2">
-                                    <p>First Name</p>
-                                    <input placeholder="First Name"{...register("firstName", { required: true })} />
-                                    {errors.exampleRequired && <span>This field is required</span>}
+                                    <p>Full Name</p>
+                                    <input placeholder="First Name"
+                                    {...register("firstName", { required: true })}
+                                    value={user.displayName}
+                                     />
+                                    {errors.firstName && <span>This field is required</span>}
                                 </div>
 
                                 <div className="w-50 px-2">
-                                    <p>Last Name</p>
-                                    <input placeholder="Last Name"{...register("lastName", { required: true })} />
-                                    {errors.exampleRequired && <span>This field is required</span>}
+                                    <p>Total Price</p>
+                                    <input 
+                                    value={price}
+                                    readonly
+                                     />
                                 </div>
                             </div>
 
                             <div className="mb-3 d-flex justify-content-between">
                                 <div className="w-50 px-2">
                                     <p>Phone Number</p>
-                                    <input placeholder="Phone Number"{...register("phone", { required: true })} />
-                                    {errors.exampleRequired && <span>This field is required</span>}
+                                    <input type="number" min="9999999" max="10000000000000" placeholder="Phone Number"{...register("phone", { required: true })} />
+                                    {errors.phone && <span>This field is required</span>}
                                 </div>
 
                                 <div className="w-50 px-2">
                                     <p>Email</p>
-                                    <input placeholder="Email" {...register("email", { required: true })} />
-                                    {errors.exampleRequired && <span>This field is required</span>}
+                                    <input 
+                                    placeholder="Email"
+                                     {...register("email", 
+                                     { required: true })}
+                                     value={user.email}
+                                     />
+                                    {errors.email && <span>This field is required</span>}
                                 </div>
                             </div>
-                            <textarea name="message" placeholder="Message" rows="5"></textarea>
+                            <textarea {...register("comment")} name="comment" placeholder="Comment" rows="5"></textarea>
 
-
-                            <input type="submit" />
-                        </form>
-                        <h3 className="mb-5"><span>2</span> Billing Information</h3>
-                    </div>
-                </div>
-
-
-
-                <div className="row mt-5">
-                    <div className="col-md-8 col-sm-12">
-                        <div className="billing-information">
                             <h3 className="mb-5"><span>2</span> Billing Information</h3>
+                        </div>
+                    </div>
 
-                            <form className="mx-5" onSubmit={handleSubmit(onSubmit)}>
+
+
+                    <div className="row mt-5">
+                        <div className="col-md-8 col-sm-12">
+                            <div className="billing-information">
                                 <div className="mb-3 d-flex justify-content-between">
                                     <div className="w-50 px-2">
-                                        <p>First Name</p>
-                                        <input placeholder="First Name"{...register("firstName", { required: true })} />
-                                        {errors.exampleRequired && <span>This field is required</span>}
+                                        <p>Address</p>
+                                        <input placeholder="Address"{...register("address", { required: true })} />
+                                        {errors.address && <span>This field is required</span>}
                                     </div>
 
                                     <div className="w-50 px-2">
-                                        <p>Last Name</p>
-                                        <input placeholder="Last Name"{...register("lastName", { required: true })} />
-                                        {errors.exampleRequired && <span>This field is required</span>}
+                                        <p>City</p>
+                                        <input placeholder="City"{...register("city", { required: true })} />
+                                        {errors.city && <span>This field is required</span>}
                                     </div>
                                 </div>
 
                                 <div className="mb-3 d-flex justify-content-between">
                                     <div className="w-50 px-2">
-                                        <p>Phone Number</p>
-                                        <input placeholder="Phone Number"{...register("phone", { required: true })} />
-                                        {errors.exampleRequired && <span>This field is required</span>}
+                                        <p>State</p>
+                                        <input placeholder="State"{...register("state", { required: true })} />
+                                        {errors.state && <span>This field is required</span>}
                                     </div>
 
                                     <div className="w-50 px-2">
-                                        <p>Email</p>
-                                        <input placeholder="Email" {...register("email", { required: true })} />
-                                        {errors.exampleRequired && <span>This field is required</span>}
+                                        <p>Postal Code</p>
+                                        <input
+                                            placeholder="Postal Code"
+                                            type="number"
+                                            min="999"
+                                            max="10000"
+                                            {...register("postalCode", { required: true })} />
+                                        {errors.postalCode && <span>This field is required</span>}
                                     </div>
                                 </div>
                                 <input type="submit" />
-                            </form>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
 
             </div>
         </div>

@@ -28,7 +28,7 @@ export const userContext = createContext();
 function App() {
 
   const [adult, setAdult] = useState(1);
-  const [children, setChildren] = useState(0);
+  const [children, setChildren] = useState(1);
 
   return (
     <AuthProvider>
@@ -41,7 +41,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/checkOut" element={<CheckOut />} />
+          <Route path="/checkOut/:title" element={<CheckOut />} />
           <Route path="/destination/:title" element={<DestinationDetail />} />
 
           <Route path="/destination" element={<PrivetRoute>

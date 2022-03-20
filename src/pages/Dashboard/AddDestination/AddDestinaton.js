@@ -11,14 +11,6 @@ const AddDestinaton = () => {
     const [imageUrl2, setImageUrl2] = useState("");
     const [imageUrl3, setImageUrl3] = useState("");
 
-
-
-
-
-
-
-
-
     const navigate = useNavigate()
 
     const onSubmit = data => {

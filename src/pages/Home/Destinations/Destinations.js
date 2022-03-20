@@ -5,7 +5,6 @@ import './Destinatons.css';
 
 const Destinations = () => {
     const [destinations, setDestinations] = useState([]);
-    console.log(destinations)
     useEffect(() => {
         const url = `http://localhost:5000/destinations`;
         fetch(url)

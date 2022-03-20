@@ -10,7 +10,7 @@ const CheckOutContent = ({ title }) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const [adult, setAdult, children] = useContext(userContext);
+    const [adult, children] = useContext(userContext);
     // console.log(children, adult, setAdult);
     const { user } = useAuth();
     const price = adult*320 + children*250;

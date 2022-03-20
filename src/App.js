@@ -32,7 +32,7 @@ function App() {
 
   return (
     <AuthProvider>
-      <userContext.Provider value={[adult, setAdult, children, setChildren]}>
+      <userContext.Provider value={[adult, children, setAdult, setChildren]}>
         <Toaster />
         <Routes>
           <Route path="/" element={<Home />} />

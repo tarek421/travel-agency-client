@@ -7,7 +7,7 @@ import './Cart.css';
 
 const Cart = ({ title }) => {
 
-    const [adult, setAdult, children, setChildren] = useContext(userContext);
+    const [adult, children, setAdult, setChildren] = useContext(userContext);
 
     const total = adult * 320 + children * 250;
 

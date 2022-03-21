@@ -38,7 +38,7 @@ const AddDestinaton = () => {
             image3: imageUrl3,
         };
         console.log(destination);
-        const url = `http://localhost:5000/destinations`;
+        const url = `https://quiet-citadel-61809.herokuapp.com/destinations`;
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

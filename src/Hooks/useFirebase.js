@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut, updateProfile } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut, updateProfile, getIdToken } from "firebase/auth";
 import initializeAuthentication from '../Firebase/firebase.init';
 import { useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast';
@@ -10,6 +10,8 @@ const useFirebase = () => {
     const [user, setUser] = React.useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState("");
+    const [admin, setAdmin] = useState(false);
+    const [token, setToken] = useState('');
 
     let navigate = useNavigate();
 
@@ -23,6 +25,7 @@ const useFirebase = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 setUser(user);
+                saveToDatabase(email, name, "POST");
                 UpdateUserName(name);
                 navigate('/');
                 toast.dismiss();
@@ -39,7 +42,7 @@ const useFirebase = () => {
 
     const signInUser = (email, password) => {
         const loading = "Please Wait...";
-            toast.loading(loading);
+        toast.loading(loading);
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
@@ -65,6 +68,7 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
+                saveToDatabase(result.user.email, result.user.displayName, "PUT");
                 navigate('/home');
             }).catch((error) => {
                 // Handle Errors here.
@@ -85,13 +89,26 @@ const useFirebase = () => {
     useEffect(() => {
         const unSubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
-                setUser(user)
-            } else {
+                setUser(user);
+                getIdToken(user)
+                  .then((idToken) => {
+                    setToken(idToken);
+                  })
+                  .catch((error) => {
+                    console.log(error);
+                  });
+              } else {
                 setUser({});
-            }
+              }
         });
         return () => unSubscribed;
     }, [auth])
+
+    useEffect(() => {
+        fetch(`https://quiet-citadel-61809.herokuapp.com/user/${user.email}`)
+          .then((res) => res.json())
+          .then((data) => setAdmin(data.admin));
+      }, [user.email]);
 
 
     const logout = () => {
@@ -101,15 +118,27 @@ const useFirebase = () => {
             .catch((error) => { })
             .finally(() => setIsLoading(false));
     };
- 
+
+    const saveToDatabase = (email, displayName, method) => {
+        const user = { email, displayName };
+        const url = `https://quiet-citadel-61809.herokuapp.com/users`
+        fetch(url,{
+            method: method,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(user)
+        })
+    }
+
 
     return {
+        user,
+        admin,
         RegisterUser,
         signInUser,
         googleSignIn,
         logout,
         isLoading,
-        user,
+        token,
         authError,
 
     };

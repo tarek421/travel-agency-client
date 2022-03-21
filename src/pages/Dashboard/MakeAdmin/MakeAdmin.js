@@ -1,12 +1,12 @@
 import { Alert, Button, CircularProgress, TextField } from "@mui/material";
 import React, { useState } from "react";
+import useAuth from "../../../Hooks/useAuth";
 import './MakeAdmin.css';
-// import useAuth from "../../../hooks/useAuth";
 
 const MakeAdmin = () => {
   const [email, setEmail] = useState("");
   const [success, setSuccess] = useState(false);
-//   const { token } = useAuth();
+  const { token } = useAuth();
   const [lodding, setLodding] = useState(false);
 
   const handleChange = (e) => {
@@ -16,11 +16,11 @@ const MakeAdmin = () => {
     setLodding(true)
     e.preventDefault();
     const user = { email };
-    fetch("https://rocky-harbor-59757.herokuapp.com/users/admin", {
+    fetch("https://quiet-citadel-61809.herokuapp.com/users/admin", {
       method: "PUT",
       headers: {
         "content-type": "application/json",
-        // "authorization": `Bearer ${token}`,
+        "authorization": `Bearer ${token}`,
       },
       body: JSON.stringify(user),
     })
@@ -51,7 +51,7 @@ const MakeAdmin = () => {
         {success && (
           <Alert
             sx={{
-              width: "30%",
+              width: "50%",
               margin: "auto",
               background: "#2d377bab",
               color: "white",

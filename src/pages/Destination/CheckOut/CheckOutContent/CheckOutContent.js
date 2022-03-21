@@ -9,11 +9,9 @@ import './CheckOutContent.css';
 const CheckOutContent = ({ title }) => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-
     const [adult, children] = useContext(userContext);
-    // console.log(children, adult, setAdult);
     const { user } = useAuth();
-    const price = adult*320 + children*250;
+    const totalprice = adult*320 + children*250;
 
     const navigate = useNavigate();
 
@@ -28,9 +26,9 @@ const CheckOutContent = ({ title }) => {
         });
         const userInfo = {
             destinationName: title,
-            name: data.firstName + " " + data.lastName,
+            name: data.fullName,
             phone: data.phone,
-            email: data.email,
+            email: user.email,
             address: data.address,
             city: data.city,
             state: data.state,
@@ -38,10 +36,10 @@ const CheckOutContent = ({ title }) => {
             comment: data.comment,
             adultPerson: adult,
             childrenPerson: children,
-            price: price, 
+            price: totalprice, 
         }
         console.log(userInfo);
-        const url = `http://localhost:5000/orders`;
+        const url = `https://quiet-citadel-61809.herokuapp.com/orders`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -75,17 +73,17 @@ const CheckOutContent = ({ title }) => {
                             <div className="mb-3 d-flex justify-content-between">
                                 <div className="w-50 px-2">
                                     <p>Full Name</p>
-                                    <input placeholder="First Name"
-                                    {...register("firstName", { required: true })}
+                                    <input placeholder="Full Name"
+                                    {...register("fullName", { required: true })}
                                     value={user.displayName}
                                      />
-                                    {errors.firstName && <span>This field is required</span>}
+                                    {errors.fullName && <span>This field is required</span>}
                                 </div>
 
                                 <div className="w-50 px-2">
                                     <p>Total Price</p>
                                     <input 
-                                    value={price}
+                                    value={totalprice}
                                     readonly
                                      />
                                 </div>
@@ -94,7 +92,7 @@ const CheckOutContent = ({ title }) => {
                             <div className="mb-3 d-flex justify-content-between">
                                 <div className="w-50 px-2">
                                     <p>Phone Number</p>
-                                    <input type="number" min="9999999" max="10000000000000" placeholder="Phone Number"{...register("phone", { required: true })} />
+                                    <input type="number" min="9999999" max="1000000000000000000" placeholder="Phone Number"{...register("phone", { required: true })} />
                                     {errors.phone && <span>This field is required</span>}
                                 </div>
 

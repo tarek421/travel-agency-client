@@ -6,7 +6,7 @@ import './Destinatons.css';
 const Destinations = () => {
     const [destinations, setDestinations] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5000/destinations`;
+        const url = `https://quiet-citadel-61809.herokuapp.com/destinations`;
         fetch(url)
             .then(res => res.json())
             .then(data => setDestinations(data))

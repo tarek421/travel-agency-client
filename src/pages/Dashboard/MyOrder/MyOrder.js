@@ -11,18 +11,24 @@ import useAuth from '../../../Hooks/useAuth';
 
 
 const MyOrder = () => {
-    const [OrderData, setOrderData] = useState([]);
-    const { user } = useAuth();
+    const [orderData, setOrderData] = useState([]);
+    const { user, token } = useAuth();
     console.log(user.email)
 
     useEffect(() => {
-        const url = `http://localhost:5000/order?email=${user.email}`;
-        fetch(url)
+        const url = `https://quiet-citadel-61809.herokuapp.com/order?email=${user.email}`;
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                "content-type": "application/json",
+                "authorization": `Bearer ${token}`,
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 setOrderData(data);
             })
-    }, [user.email])
+    }, [user.email, token])
 
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -51,30 +57,30 @@ const MyOrder = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {OrderData
-                        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        .map((row) => (
-                            <TableRow
-                                key={row._id}
-                                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                            >
-                                <TableCell component="th" scope="row">
-                                    {row.name}
-                                </TableCell>
-                                <TableCell align="left">{row.destinationName}</TableCell>
-                                <TableCell align="center">{row.email}</TableCell>
-                                <TableCell align="left">{row.phone}</TableCell>
-                                <TableCell align="center">{row.price}</TableCell>
+                        {orderData
+                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            .map((row) => (
+                                <TableRow
+                                    key={row._id}
+                                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                                >
+                                    <TableCell component="th" scope="row">
+                                        {row.name}
+                                    </TableCell>
+                                    <TableCell align="left">{row.destinationName}</TableCell>
+                                    <TableCell align="center">{row.email}</TableCell>
+                                    <TableCell align="left">{row.phone}</TableCell>
+                                    <TableCell align="center">{row.price}</TableCell>
 
-                            </TableRow>
-                        ))}
+                                </TableRow>
+                            ))}
                     </TableBody>
                 </Table>
             </TableContainer>
             <TablePagination
                 rowsPerPageOptions={[5, 10, 20]}
                 component="div"
-                count={OrderData.length}
+                count={orderData.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}

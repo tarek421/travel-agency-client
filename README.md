@@ -1,6 +1,6 @@
 # Travel Agency
 
-[Travel Agency Prevew Site](https://hopeful-kalam-789704.netlify.app/).
+[Travel Agency Live Prevew](https://hopeful-kalam-789704.netlify.app/).
 
 <!-- ## Available Scripts
 

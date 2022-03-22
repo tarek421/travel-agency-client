@@ -22,7 +22,10 @@
 * Customer can review in this product.
 * Admin can make a new admin. 
 
-![Uploading screenshot-hopeful-kalam-789704.netlify.app-2022.03.22-23_19_13.png…]()
+
+## `You can see full home page screenshot:`
+
+![screenshot-hopeful-kalam-789704 netlify app-2022 03 22-23_19_13](https://user-images.githubusercontent.com/76926399/159545540-9be5db90-54a2-4414-8b69-7d91b6fd3b45.png)
 
 
 

@@ -3,8 +3,6 @@
 [Travel Agency Live Prevew](https://hopeful-kalam-789704.netlify.app/).
 
 
-<!-- ![world-traveler](https://user-images.githubusercontent.com/76926399/116670645-cc854380-a9c1-11eb-9eae-dcf3264da78e.png) -->
-
 ![screenshot-hopeful-kalam-789704 netlify app-2022 03 22-23_20_41](https://user-images.githubusercontent.com/76926399/159539167-3f2e7b24-5d52-4f89-88b9-09dd58d5aa22.png)
 
 ## This project has been used tecknology
@@ -18,10 +16,11 @@
 
 * This site is responsive for mobile and Desktop.
 * Here I am use some npm package for style.
-* You will see a destination page.which is private page.You can't se without login.
+* You will see a destination page. which is private page. You can't see without login and without admin see other features.
 * I am create login page by firebase authentication.
 * you can new product added, remove and edit.
 * Customer can review in this product.
+* Admin can make a new admin. 
 
 
 

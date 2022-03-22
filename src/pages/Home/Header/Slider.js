@@ -18,7 +18,7 @@ import Navigations from '../../Shared/Navigation/Navigation';
 const Slider = () => {
 
   return (
-    <>
+    <div id="slider">
       <Swiper
         spaceBetween={30}
         effect={"fade"}
@@ -63,7 +63,7 @@ const Slider = () => {
           </div>
         </SwiperSlide>
       </Swiper>
-    </>
+    </div>
   );
 }
 

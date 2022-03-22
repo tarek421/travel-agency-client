@@ -30,7 +30,7 @@ function scrollFunction() {
     return (
         <nav id="navbar" className="navbar navbar-expand-lg navbar-dark animated">
             <div className="container">
-                <a href="#home" className="navbar-brand"><img src={logo} alt="" /></a>
+                <Link to="/home" className="navbar-brand"><img src={logo} alt="" /></Link>
                 <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -47,7 +47,7 @@ function scrollFunction() {
 
                         <NavLink to="/contact" className={(navInfo) => navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link"} tabIndex="-1">Contact</NavLink>
 
-                        <NavLink to="/dashboard/addDestination" className={(navInfo) => (navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link")} tabIndex="-1">Dashboard</NavLink>
+                        <NavLink to="/dashboard/myOrder" className={(navInfo) => (navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link")} tabIndex="-1">Dashboard</NavLink>
 
                         {
                             user?.email? <b style={{cursor:'pointer'}} onClick={handleLogOut} className="nav-item nav-link" tabIndex="-1">Log Out</b> : <Link to="/login" className="nav-item nav-link" tabIndex="-1">login</Link>

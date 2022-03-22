@@ -1,0 +1,21 @@
+#rivews .rivew-content{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#rivews .rivew-content h2{
+    margin-bottom: 30px;
+}
+
+#rivews .rivew-content textarea{
+    width: 100%;
+    height: 150px;
+    padding: 20px;
+}
+
+#rivews .rivew-content form span{
+    color: red;
+}

@@ -1,4 +1,5 @@
 import { faFacebook, faGooglePlus, faInstagram, faTwitter, faVimeo } from '@fortawesome/free-brands-svg-icons';
+import { faCircle } from '@fortawesome/free-regular-svg-icons';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
@@ -12,7 +13,7 @@ const Footer = () => {
             <div className="container">
                <div className="row">
                   <div className="col-md-3 col-sm-12 col-xs-12">
-                     <a href='#home'><img src={logo} alt="" /></a>
+                     <a href='#navbar'><img src={logo} alt="" /></a>
                      <br />
                      <br />
                      <p className='content'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In scelerisque bibendum efficitur. Etiam mattis, tortor non tincidunt euismod. Cras et maximus magna. Etiam mattis, tortor non tincidunt euismod.</p>
@@ -52,11 +53,16 @@ const Footer = () => {
                   </div>
 
                   <div className="col-md-3 col-sm-12 col-xs-12">
-                     {/* <div className="d-flex">
-                        <img src={gallery1} alt="" />
-                        <img src={gallery1} alt="" />
-                        <img src={gallery1} alt="" />
-                  </div>    */}
+                     <h5>LATEST NEWS</h5>
+                     <br />
+                     <ul className='links'>
+                        <li><p><FontAwesomeIcon icon={faCircle} /> <span>Travel Packages around the World</span></p></li>
+                        <li><p><FontAwesomeIcon icon={faCircle} /> <span>Best Destinations in the World</span></p></li>
+                        <li><p><FontAwesomeIcon icon={faCircle} /> <span>Lonely Planet: Best in Travel 2016</span></p></li>
+                        <li><p><FontAwesomeIcon icon={faCircle} /> <span>25 World's Best Places to Visit</span></p></li>
+                        <li><p><FontAwesomeIcon icon={faCircle} /> <span>Destinations</span></p></li>
+                        <li><p><FontAwesomeIcon icon={faCircle} /> <span>Top Destinations in the World</span></p></li>
+                     </ul>
                   </div>
                </div>
             </div>

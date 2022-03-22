@@ -56,9 +56,11 @@
     align-items: center;
   }
   
-  .swiper-slide img {
+  #Testimonial .swiper-slide img {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 65px;
+    height: 65px;
+    margin: auto;
+    border-radius: 50%;
     object-fit: cover;
   }

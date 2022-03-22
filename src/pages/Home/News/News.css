@@ -1,0 +1,16 @@
+#news .card h3{
+    font-size: 25px;
+    color: #41424a;
+}
+
+
+#news .card span{
+    font-size: 14px;
+    color: #777a91;
+    display: block;
+}
+
+#news .card p{
+    font-size: 16px;
+    color: #313341;
+}

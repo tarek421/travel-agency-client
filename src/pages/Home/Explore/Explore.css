@@ -1,0 +1,61 @@
+#explore {
+  background-image: url(../../../image/bg-stuning.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  height: 65vh;
+  position: relative;
+}
+
+#explore .explore-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+}
+
+#explore .explore-content h2 {
+  font-size: 36px;
+  line-height: 40px;
+  margin-bottom: 30px;
+  font-family: "Open Sans";
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#explore .explore-content p {
+  font-family: "Playfair Display";
+  font-size: 18px;
+  font-style: italic;
+  margin-bottom: 30px;
+  display: block;
+}
+
+#explore .explore-content .zt-primary {
+  background: #f4b843;
+  border-color: #f4b843;
+  color: #272121;
+  outline: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+}
+
+#explore .explore-content .zt-primary:hover {
+  background: #e8aa33;
+  color: #ffffff;
+  border-color: #e8aa33;
+  transition: all 0.5s ease;
+}
+
+.btn {
+  font-family: "Open Sans";
+  border-radius: 3px;
+  padding: 15px 35px;
+  font-size: 14px;
+  letter-spacing: 2px;
+}

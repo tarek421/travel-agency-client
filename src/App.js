@@ -22,6 +22,8 @@ import { createContext, useState } from 'react';
 import CheckOut from './pages/Destination/CheckOut/CheckOut/CheckOut';
 import MyOrder from './pages/Dashboard/MyOrder/MyOrder';
 import Orders from './pages/Dashboard/Orders/Orders';
+import AdminRoute from './pages/Dashboard/AdminRoute/AdminRoute';
+import AddRivews from './pages/Dashboard/AddRivews/AddRivews';
 
 export const userContext = createContext();
 
@@ -49,10 +51,17 @@ function App() {
           </PrivetRoute>} />
 
           <Route path="/dashboard" element={<Dashboard />}>
-            <Route path="makeAdmin" element={<MakeAdmin />} />
-            <Route path="addDestination" element={<AddDestinaton />} />
+            <Route path="makeAdmin" element={<AdminRoute>
+              <MakeAdmin />
+            </AdminRoute>} />
+            <Route path="addDestination" element={<AdminRoute>
+              <AddDestinaton />
+            </AdminRoute>} />
             <Route path="myOrder" element={<MyOrder />} />
-            <Route path="orders" element={<Orders />} />
+            <Route path="addRivew" element={<AddRivews />} />
+            <Route path="orders" element={<AdminRoute>
+              <Orders />
+            </AdminRoute>} />
           </Route>
 
         </Routes>

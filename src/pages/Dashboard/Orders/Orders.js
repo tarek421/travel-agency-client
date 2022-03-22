@@ -8,21 +8,30 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { Button } from '@mui/material';
+import useAuth from '../../../Hooks/useAuth';
 
 
 
 
 const Orders = () => {
     const [OrderData, setOrderData] = useState([]);
+    const { token } = useAuth();
+
 
     useEffect(() => {
         const url = `https://quiet-citadel-61809.herokuapp.com/orders`;
-        fetch(url)
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `Bearer ${token}`,
+            }
+        })
             .then(res => res.json())
             .then(data => {
                 setOrderData(data);
             })
-    }, [])
+    }, [token])
 
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -53,27 +62,27 @@ const Orders = () => {
                     </TableHead>
                     <TableBody>
                         {OrderData
-                        .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                        .map((row) => (
-                            <TableRow
-                                key={row._id}
-                                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-                            >
-                                <TableCell component="th" scope="row">
-                                    {row.name}
-                                </TableCell>
-                                <TableCell align="left">{row.destinationName}</TableCell>
-                                <TableCell align="left">{row.email}</TableCell>
-                                <TableCell align="left">{row.phone}</TableCell>
-                                <TableCell align="left">{row.price}</TableCell>
-                                <TableCell align="center">
+                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                            .map((row) => (
+                                <TableRow
+                                    key={row._id}
+                                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                                >
+                                    <TableCell component="th" scope="row">
+                                        {row.name}
+                                    </TableCell>
+                                    <TableCell align="left">{row.destinationName}</TableCell>
+                                    <TableCell align="left">{row.email}</TableCell>
+                                    <TableCell align="left">{row.phone}</TableCell>
+                                    <TableCell align="left">{row.price}</TableCell>
+                                    <TableCell align="center">
 
-                                    <Button variant='contained'>Not Visited</Button>
+                                        <Button variant='contained'>Not Visited</Button>
 
 
-                                </TableCell>
-                            </TableRow>
-                        ))}
+                                    </TableCell>
+                                </TableRow>
+                            ))}
                     </TableBody>
                 </Table>
             </TableContainer>

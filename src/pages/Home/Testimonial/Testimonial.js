@@ -1,12 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import './Testimonial.css';
-import person1 from '../../../image/person/person-1.jpg';
-import person2 from '../../../image/person/person2.jpg';
-import person3 from '../../../image/person/person-3.jpg';
-import person4 from '../../../image/person/person-4.jpeg';
-import person5 from '../../../image/person/person-5.jpg';
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -18,46 +13,20 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation, Autoplay } from "swiper";
-// import SwiperSlide from './SwiperSlide';
 
 const Testimonial = () => {
 
-  const testimonials = [
-    {
-      id: 1,
-      name: 'Rohan Rana',
-      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et pariatur architecto laborum aut? Corporis!',
-      image: `${person1}`
-    },
-    {
-      id: 2,
-      name: 'Rohan Rana',
-      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et pariatur architecto laborum aut? Corporis!',
-      image: `${person2}`
-    },
-    {
-      id: 3,
-      name: 'Rohan Rana',
-      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et pariatur architecto laborum aut?Corporis!',
-      image: `${person3}`
-    },
-    {
-      id: 4,
-      name: 'Rohan Rana',
-      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et pariatur architecto laborum aut?? Corporis!',
-      image: `${person4}`
-    },
-    {
-      id: 5,
-      name: 'Rohan Rana',
-      content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Et pariatur architecto laborum aut?? Corporis!',
-      image: `${person5}`
-    }
-  ]
-  const [value, setValue] = useState(5);
+  const [rivews, setRivews] = useState([]);
 
-  const Ratings = () =>{
-    return(
+
+  useEffect(() => {
+    fetch(`https://quiet-citadel-61809.herokuapp.com/rivews`)
+      .then(res => res.json())
+      .then(data => setRivews(data))
+  }, [])
+
+  const Ratings = ({ star }) => {
+    return (
       <Box
         sx={{
           '& > legend': { mt: 2 },
@@ -65,11 +34,8 @@ const Testimonial = () => {
       >
         <Rating
           name="simple-controlled"
-          value={value}
+          value={star}
           readOnly
-          onChange={(event, newValue) => {
-            setValue(newValue);
-          }}
         />
       </Box>
     )
@@ -100,13 +66,13 @@ const Testimonial = () => {
 
 
             {
-              testimonials.map(rivew => <SwiperSlide key={rivew.id}>
+              rivews.map(rivew => <SwiperSlide key={rivew.id}>
                 <div>
-                  
-                  <p>{rivew.content}</p>
-                  <img className="person" src={rivew.image} alt="" />
+
+                  <p>{rivew.rivew}</p>
+                  <img className="person" src={rivew.photo} alt="photos" />
                   <h6 className='mt-3'>{rivew.name}</h6>
-                  <Ratings/>
+                  <Ratings star={rivew.star} />
                 </div>
               </SwiperSlide>)
             }

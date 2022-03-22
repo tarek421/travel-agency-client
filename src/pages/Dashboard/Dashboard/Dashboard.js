@@ -6,7 +6,11 @@ import { faFirstOrderAlt } from '@fortawesome/free-brands-svg-icons';
 import './Dashboard.css';
 import logo from '../../../image/logo.png';
 import classes from "./Header.module.css";
+import useAuth from '../../../Hooks/useAuth';
+
 const Dashboard = () => {
+    const { user, admin } = useAuth();
+
     return (
         <div className='d-flex dashboard'>
             <div className="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark" style={{ width: '250px' }}><Link className="mx-auto" to="/home"><img src={logo} alt="" /></Link>
@@ -20,26 +24,33 @@ const Dashboard = () => {
                         </NavLink>
                     </li>
 
-                    <li>
+                    {user?.email && admin ? <li>
                         <NavLink to="orders" className={(navInfo) => navInfo.isActive ? classes.active : "nav-link text-white"}>
-                        <FontAwesomeIcon className='text-danger' icon={faFirstOrderAlt} />
+                            <FontAwesomeIcon className='text-danger' icon={faFirstOrderAlt} />
                             <span className="ms-2">Orders</span>
                         </NavLink>
-                    </li>
+                    </li> : " "}
 
-                    <li className="nav-item">
+                    {user.email && admin ? <li className="nav-item">
                         <NavLink to="addDestination" className={(navInfo) =>
                             navInfo.isActive ? classes.active : "nav-link text-white"
                         } aria-current="page">
                             <FontAwesomeIcon className='text-danger' icon={faSquarePlus} />
                             <span className="ms-2">Add Destinations</span>
                         </NavLink>
-                    </li>
+                    </li> : ""}
 
-                    <li>
+                    {user?.email && admin ? <li>
                         <NavLink to="makeAdmin" className={(navInfo) => navInfo.isActive ? classes.active : "nav-link text-white"}>
                             <FontAwesomeIcon className='text-danger' icon={faSquarePlus} />
                             <span className="ms-2">Make Admin</span>
+                        </NavLink>
+                    </li> : ""}
+
+                    <li>
+                        <NavLink to="addRivew" className={(navInfo) => navInfo.isActive ? classes.active : "nav-link text-white"}>
+                            <FontAwesomeIcon className='text-danger' icon={faSquarePlus} />
+                            <span className="ms-2">Add Rivew</span>
                         </NavLink>
                     </li>
 

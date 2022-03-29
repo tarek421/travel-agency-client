@@ -1,12 +1,44 @@
 import { faEnvelope, faLocationPin, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
-import { useForm } from "react-hook-form";
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import './ContactContent.css';
+import toast from 'react-hot-toast';
 
 const ContactContent = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const form = useRef();
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        const loading = toast.loading("Please wait...", {
+            style: {
+                borderRadius: "10px",
+                background: "#333",
+                color: "#fff",
+            },
+        });
+
+        emailjs.sendForm('service_i4v6154', 'template_rxijsh6', form.current, 'user_Y67x4ITrAVSdzzkkghXDx')
+            .then((result) => {
+                toast.dismiss(loading);
+                toast.success("Successfully send message", {
+                    style: {
+                        borderRadius: "10px",
+                        background: "#333",
+                        color: "#fff",
+                    },
+                });
+            }, (error) => {
+                toast.error(error.message, {
+                    style: {
+                        borderRadius: "10px",
+                        background: "#333",
+                        color: "#fff",
+                    },
+                });
+            });
+    };
     return (
         <div id="contact-content">
             <div className="container">
@@ -30,24 +62,21 @@ const ContactContent = () => {
                     </div>
                 </div>
 
-                <form onSubmit={handleSubmit(onSubmit)} className="mt-5">
+                <form ref={form} onSubmit={sendEmail} className="mt-5">
                     <div className="row">
                         <div className="name col-6">
-                            <input type="text" placeholder="name"{...register("name", { required: true })} />
-                            {errors.exampleRequired && <span>This field is required</span>}
+                            <input type="text" placeholder="name" name="name" required />
                         </div>
                         <div className="email col-6">
-                            <input type="text" placeholder="email"{...register("email", { required: true })} />
-                            {errors.exampleRequired && <span>This field is required</span>}
+                            <input type="text" placeholder="email" name="email" required />
                         </div>
                     </div>
                     <div className="message row">
                         <div className="col-12">
-                            <textarea placeholder="message"{...register("message", { required: true })} />
-                            {errors.exampleRequired && <span>This field is required</span>}
+                            <textarea placeholder="message" name="message" required />
                         </div>
                     </div>
-                    <input type="submit" />
+                    <input type="submit" value="Send" />
                 </form>
             </div>
         </div>

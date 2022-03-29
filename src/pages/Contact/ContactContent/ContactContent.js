@@ -29,6 +29,7 @@ const ContactContent = () => {
                         color: "#fff",
                     },
                 });
+                e.target.reset();
             }, (error) => {
                 toast.error(error.message, {
                     style: {

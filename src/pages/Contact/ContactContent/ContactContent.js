@@ -4,8 +4,10 @@ import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import './ContactContent.css';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const ContactContent = () => {
+    const navigate = useNavigate()
     const form = useRef();
 
     const sendEmail = (e) => {
@@ -29,7 +31,7 @@ const ContactContent = () => {
                         color: "#fff",
                     },
                 });
-                e.target.reset();
+                navigate('/')
             }, (error) => {
                 toast.error(error.message, {
                     style: {

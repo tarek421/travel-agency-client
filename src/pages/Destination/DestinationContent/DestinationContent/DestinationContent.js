@@ -26,7 +26,7 @@ const DestinationContent = ({ destination }) => {
                                 <b class="btn btn-icon btn-linkedin"><i class="fa fa-linkedin"></i><span>LinkedIn</span></b>
                             </div>
                         </div>
-                        <div className="col-md-4 col-sm-12">
+                        <div className="col-lg-4 col-sm-12">
                             <Cart title={title} />
                         </div>
                     </div>

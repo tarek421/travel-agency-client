@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Orders.css';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,15 +8,19 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
-import { Button } from '@mui/material';
 import useAuth from '../../../Hooks/useAuth';
 
 
 
 
 const Orders = () => {
-    const [OrderData, setOrderData] = useState([]);
     const { token } = useAuth();
+    const [OrderData, setOrderData] = useState([]);
+    const [orderStatus, setOrderStatus] = useState({});
+
+
+
+
 
 
     useEffect(() => {
@@ -33,6 +38,7 @@ const Orders = () => {
             })
     }, [token])
 
+
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -44,6 +50,30 @@ const Orders = () => {
         setRowsPerPage(+event.target.value);
         setPage(0);
     };
+
+
+    const handleChange = (e, id) => {
+        const state = {
+            id: id,
+            value: e.target.value
+        }
+        setOrderStatus(state)
+    }
+
+    useEffect(() => {
+        const url = `https://quiet-citadel-61809.herokuapp.com/orders/status`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': `Bearer ${token}`,
+            },
+            body: JSON.stringify(orderStatus)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data));
+    }, [orderStatus, token])
+
 
 
     return (
@@ -77,8 +107,12 @@ const Orders = () => {
                                     <TableCell align="left">{row.price}</TableCell>
                                     <TableCell align="center">
 
-                                        <Button variant='contained'>Not Visited</Button>
-
+                                        <select onChange={(e) => handleChange(e, row._id)} name="option" id="option">
+                                            <option value="" selected disabled hidden>{row.status}</option>
+                                            <option value="pending">Pending</option>
+                                            <option value="approved">Approve</option>
+                                            <option value="rejected">Reject</option>
+                                        </select>
 
                                     </TableCell>
                                 </TableRow>
@@ -95,6 +129,7 @@ const Orders = () => {
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
             />
+          
         </Paper>
     );
 };

@@ -54,6 +54,7 @@ const MyOrder = () => {
                             <TableCell align="center">email</TableCell>
                             <TableCell align="left">phone</TableCell>
                             <TableCell align="center">Total Price</TableCell>
+                            <TableCell align="center">Status</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -71,7 +72,8 @@ const MyOrder = () => {
                                     <TableCell align="center">{row.email}</TableCell>
                                     <TableCell align="left">{row.phone}</TableCell>
                                     <TableCell align="center">{row.price}</TableCell>
-
+                                    <TableCell align="center">{row.status}</TableCell>
+                                    
                                 </TableRow>
                             ))}
                     </TableBody>

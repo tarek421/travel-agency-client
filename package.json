@@ -23,11 +23,10 @@
     "firebase": "^9.6.8",
     "firebase-tools": "^10.4.0",
     "react": "^17.0.2",
-    "react-bootstrap": "^2.2.0",
+    "react-bootstrap": "^2.2.2",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.27.1",
     "react-hot-toast": "^2.2.0",
-    "react-material-stepper": "^1.0.0",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.3",
@@ -57,8 +56,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "react-reveal": "^1.2.2"
   }
 }

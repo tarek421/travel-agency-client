@@ -11,19 +11,28 @@ const Navigation = () => {
     }
 
 
-// When the user scrolls down 200px from the top of the document, slide down the navbar
-window.onscroll = function() {scrollFunction()};
+    // When the user scrolls down 200px from the top of the document, slide down the navbar
+    window.onscroll = function () { scrollFunction() };
 
-function scrollFunction() {
-  if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
-    document.getElementById("navbar").style.top = "0";
-    document.getElementById("navbar").style.background = "rgb(107 113 150)";
-  } else {
-    document.getElementById("navbar").style.top = "transparent";
-    document.getElementById("navbar").style.background = "transparent";
+    function scrollFunction() {
+        if (document.body.scrollTop > 450 || document.documentElement.scrollTop > 450) {
+            document.getElementById("navbar").style.top = "0";
+            document.getElementById("navbar").style.background = "rgb(107 113 150)";
+        } else {
+            document.getElementById("navbar").style.top = "transparent";
+            document.getElementById("navbar").style.background = "transparent";
 
-  }
-}
+        }
+    }
+
+
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "50%";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
 
 
 
@@ -32,7 +41,7 @@ function scrollFunction() {
             <div className="container">
                 <Link to="/home" className="navbar-brand"><img src={logo} alt="" /></Link>
                 <button type="button" className="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span className="navbar-toggler-icon"></span>
+                    <span style={{ fontSize: "30px", cursor: "pointer" }} onClick={()=> openNav()}>&#9776;</span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarCollapse">
                     <div className="navbar-nav ms-auto">
@@ -50,9 +59,29 @@ function scrollFunction() {
                         <NavLink to="/dashboard/myOrder" className={(navInfo) => (navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link")} tabIndex="-1">Dashboard</NavLink>
 
                         {
-                            user?.email? <b style={{cursor:'pointer'}} onClick={handleLogOut} className="nav-item nav-link" tabIndex="-1">Log Out</b> : <Link to="/login" className="nav-item nav-link" tabIndex="-1">login</Link>
+                            user?.email ? <b style={{ cursor: 'pointer' }} onClick={handleLogOut} className="nav-item nav-link" tabIndex="-1">Log Out</b> : <Link to="/login" className="nav-item nav-link" tabIndex="-1">login</Link>
                         }
                     </div>
+                </div>
+
+
+                <div id="mySidenav" class="sidenav">
+                    <b className="closebtn" onClick={() => closeNav()}>&times;</b>
+                    <NavLink to='/home' className={(navInfo) => navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link"}>Home</NavLink>
+
+                        <NavLink to="/destination" className={(navInfo) => navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link"}>Destination</NavLink>
+
+                        <NavLink to="/blog" className={(navInfo) => navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link"}>Blog</NavLink>
+
+                        <NavLink to="/about" className={(navInfo) => navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link"} tabIndex="-1">About</NavLink>
+
+                        <NavLink to="/contact" className={(navInfo) => navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link"} tabIndex="-1">Contact</NavLink>
+
+                        <NavLink to="/dashboard/myOrder" className={(navInfo) => (navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link")} tabIndex="-1">Dashboard</NavLink>
+
+                        {
+                            user?.email ? <b style={{ cursor: 'pointer' }} onClick={handleLogOut} className="nav-item nav-link" tabIndex="-1">Log Out</b> : <Link to="/login" className="nav-item nav-link" tabIndex="-1">login</Link>
+                        }
                 </div>
             </div>
         </nav>

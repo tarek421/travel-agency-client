@@ -203,7 +203,7 @@ const AddDestinaton = () => {
                         <textarea name="message" placeholder="DescripTion" rows="5" {...register("description", { required: true })}></textarea>
                         {errors.description && <span>This field is required</span>}
                     </div>
-                    <div className="col-md-4 col-sm-12">
+                    <div className="col-lg-4 col-sm-12">
 
                         <div className="image-1">
                             <p>Image-1</p>

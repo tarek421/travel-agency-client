@@ -16,7 +16,7 @@ const News = () => {
                     <img src={shape} alt="" />
                 </div>
                 <div className="row mt-5 pt-2">
-                    <div className="col-md-4 col sm-12">
+                    <div className=" col-lg-4 col-sm-12">
                         <div className="card">
                             <img src={image1} alt="" />
                             <div className="card-body">
@@ -27,7 +27,7 @@ const News = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4 col-sm-12">
+                    <div className=" col-lg-4 col-sm-12">
                         <div className="card">
                             <div className="card-body">
                                 <h3>Sweet Love On The Beach</h3>
@@ -38,7 +38,7 @@ const News = () => {
                             <img src={image2} alt="" />
                         </div>
                     </div>
-                    <div className="col-md-4 col-sm-12">
+                    <div className=" col-lg-4 col-sm-12">
                         <div className="card">
                             <img src={image3} alt="" />
                             <div className="card-body">

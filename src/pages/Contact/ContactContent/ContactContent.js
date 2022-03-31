@@ -48,18 +48,18 @@ const ContactContent = () => {
                 <h1>SEND US A MESSAGE</h1>
                 <p>Morbi eget lectus in lorem sagittis dictum. Mauris vitae ultricies urna.</p>
                 <div className="row mt-5">
-                    <div className="col-md-4 col-sm-12">
+                    <div className="  col-lg-4 col-sm-12">
                         <FontAwesomeIcon icon={faPhone} />
                         <p>+61(1)234 56789</p>
                     </div>
 
-                    <div className="col-md-4 col-sm-12">
+                    <div className="  col-lg-4 col-sm-12">
                         <FontAwesomeIcon icon={faLocationPin} />
                         <p><span>Cecilia Chapman</span>, 711-2880</p>
                         <p>Mankato Mississippi.</p>
                     </div>
 
-                    <div className="col-md-4 col-sm-12">
+                    <div className="  col-lg-4 col-sm-12">
                         <FontAwesomeIcon icon={faEnvelope} />
                         <p>contact@zonetour.com</p>
                     </div>

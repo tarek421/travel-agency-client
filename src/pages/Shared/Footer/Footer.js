@@ -12,7 +12,7 @@ const Footer = () => {
          <div className="overly">
             <div className="container">
                <div className="row">
-                  <div className="col-md-3 col-sm-12 col-xs-12">
+                  <div className="col-lg-3 col-sm-12 col-xs-12">
                      <a href='#navbar'><img src={logo} alt="" /></a>
                      <br />
                      <br />
@@ -26,7 +26,7 @@ const Footer = () => {
                      </ul>
                   </div>
 
-                  <div className="col-md-3 col-sm-12 col-xs-12 px-5">
+                  <div className="col-lg-3 col-sm-12 col-xs-12 px-5">
                      <h5>Links</h5>
                      <br />
                      <ul className='links'>
@@ -39,7 +39,7 @@ const Footer = () => {
                      </ul>
                   </div>
 
-                  <div className="col-md-3 col-sm-12 col-xs-12">
+                  <div className="col-lg-3 col-sm-12 col-xs-12">
                      <h5>Useful Links</h5>
                      <br />
                      <ul className='links'>
@@ -52,7 +52,7 @@ const Footer = () => {
                      </ul>
                   </div>
 
-                  <div className="col-md-3 col-sm-12 col-xs-12">
+                  <div className="col-lg-3 col-sm-12 col-xs-12">
                      <h5>LATEST NEWS</h5>
                      <br />
                      <ul className='links'>

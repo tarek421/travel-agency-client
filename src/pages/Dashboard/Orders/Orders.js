@@ -19,7 +19,19 @@ const Orders = () => {
     const [orderStatus, setOrderStatus] = useState({});
 
 
+    // const [orderBg, setOrderBg] = useState();
 
+    // OrderData.map(order => setOrderBg(order.status));
+
+    const color = (status) => {
+        if(status==='approved') {
+            return 'green';
+        }else if(status==='rejected'){
+            return 'red'
+        }else{
+            return '#48525b'
+        }
+    }
 
 
 
@@ -107,7 +119,7 @@ const Orders = () => {
                                     <TableCell align="left">{row.price}</TableCell>
                                     <TableCell align="center">
 
-                                        <select onChange={(e) => handleChange(e, row._id)} name="option" id="option">
+                                        <select style={{backgroundColor:`${color(row.status)}`}} onChange={(e) => handleChange(e, row._id)} name="option" id="option">
                                             <option value="" selected disabled hidden>{row.status}</option>
                                             <option value="pending">Pending</option>
                                             <option value="approved">Approve</option>

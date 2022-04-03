@@ -65,7 +65,7 @@ const Navigation = () => {
                 </div>
 
 
-                <div id="mySidenav" class="sidenav">
+                <div id="mySidenav" className="sidenav">
                     <b className="closebtn" onClick={() => closeNav()}>&times;</b>
                     <NavLink to='/home' className={(navInfo) => navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link"}>Home</NavLink>
 

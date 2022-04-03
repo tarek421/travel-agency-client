@@ -15,15 +15,15 @@ const DestinationContent = ({ destination }) => {
                         <div className="col-md-8 col-sm-12">
                             <img className="w-100" src={image1} alt="" />
                             <div id="social-platforms">
-                                <b class="btn btn-icon btn-facebook"><i class="fa fa-facebook"></i><span>Facebook</span></b>
+                                <b className="btn btn-icon btn-facebook"><i className="fa fa-facebook"></i><span>Facebook</span></b>
 
-                                <b class="btn btn-icon btn-twitter"><i class="fa fa-twitter"></i><span>Twitter</span></b>
+                                <b className="btn btn-icon btn-twitter"><i className="fa fa-twitter"></i><span>Twitter</span></b>
 
-                                <b class="btn btn-icon btn-googleplus"><i class="fa fa-google-plus"></i><span>Google+</span></b>
+                                <b className="btn btn-icon btn-googleplus"><i className="fa fa-google-plus"></i><span>Google+</span></b>
 
-                                <b class="btn btn-icon btn-pinterest"><i class="fa fa-pinterest"></i><span>Pinterest</span></b>
+                                <b className="btn btn-icon btn-pinterest"><i className="fa fa-pinterest"></i><span>Pinterest</span></b>
 
-                                <b class="btn btn-icon btn-linkedin"><i class="fa fa-linkedin"></i><span>LinkedIn</span></b>
+                                <b className="btn btn-icon btn-linkedin"><i className="fa fa-linkedin"></i><span>LinkedIn</span></b>
                             </div>
                         </div>
                         <div className="col-lg-4 col-sm-12">

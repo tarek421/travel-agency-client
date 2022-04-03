@@ -41,13 +41,23 @@ const Testimonial = () => {
     )
   }
 
+  const deviceType = () => {
+    const ua = navigator.userAgent;
+    if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
+      return 1;
+    }else{
+      return 3;
+    }
+};
+
+
   return (
     <div id="Testimonial">
       <div className="ovarly text-center">
         <div className="container">
           <h1 className="text-center w-50 m-auto mb-5">What Our Happy Customers Say About Us</h1>
           <Swiper
-            slidesPerView={3}
+            slidesPerView={deviceType()}
             spaceBetween={30}
             slidesPerGroup={1}
             loop={true}

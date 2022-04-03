@@ -1,4 +1,4 @@
-import { faFacebookF, faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -45,7 +45,7 @@ console.log(user.displayName)
           <div className="form-container sign-up-container">
             <form className="form" onSubmit={handleSignUp(onSubmit)}>
               <h1>Create Account</h1>
-              <div className="social-container">
+              {/* <div className="social-container">
                 <li>
                   <FontAwesomeIcon className="social" icon={faGoogle} />
                 </li>
@@ -55,7 +55,7 @@ console.log(user.displayName)
                 <li>
                   <FontAwesomeIcon className="social" icon={faGithub} />
                 </li>
-              </div>
+              </div> */}
               <span>or use your email for registration</span>
               <input
                 placeholder="Name"

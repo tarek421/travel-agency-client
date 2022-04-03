@@ -13,7 +13,19 @@ import useAuth from '../../../Hooks/useAuth';
 const MyOrder = () => {
     const [orderData, setOrderData] = useState([]);
     const { user, token } = useAuth();
-    console.log(user.email)
+    // console.log(orderStatus);
+    
+
+    const color = (status) => {
+        if(status==='approved') {
+            return 'green';
+        }else if(status==='rejected'){
+            return 'red'
+        }else{
+            return '#48525b'
+        }
+    }
+
 
     useEffect(() => {
         const url = `https://quiet-citadel-61809.herokuapp.com/order?email=${user.email}`;
@@ -41,6 +53,7 @@ const MyOrder = () => {
         setRowsPerPage(+event.target.value);
         setPage(0);
     };
+
 
 
     return (
@@ -72,7 +85,7 @@ const MyOrder = () => {
                                     <TableCell align="center">{row.email}</TableCell>
                                     <TableCell align="left">{row.phone}</TableCell>
                                     <TableCell align="center">{row.price}</TableCell>
-                                    <TableCell align="center">{row.status}</TableCell>
+                                    <TableCell align="center"><span clasName="option" style={{backgroundColor:`${color(row.status)}`, color: 'white', borderRadius:'5px', padding:'10px 15px'}} >{row.status}</span></TableCell>
                                     
                                 </TableRow>
                             ))}

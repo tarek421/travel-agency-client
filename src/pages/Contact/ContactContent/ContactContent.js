@@ -4,43 +4,56 @@ import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import './ContactContent.css';
 import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const ContactContent = () => {
-    const navigate = useNavigate()
     const form = useRef();
 
     const sendEmail = (e) => {
         e.preventDefault();
 
-        const loading = toast.loading("Please wait...", {
-            style: {
-                borderRadius: "10px",
-                background: "#333",
-                color: "#fff",
-            },
-        });
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, send it!'
+          }).then((result) => {
+            if (result.isConfirmed) {
 
-        emailjs.sendForm('service_i4v6154', 'template_rxijsh6', form.current, 'user_Y67x4ITrAVSdzzkkghXDx')
-            .then((result) => {
-                toast.dismiss(loading);
-                toast.success("Successfully send message", {
+                const loading = toast.loading("Please wait...", {
                     style: {
                         borderRadius: "10px",
                         background: "#333",
                         color: "#fff",
                     },
                 });
-                navigate('/')
-            }, (error) => {
-                toast.error(error.message, {
-                    style: {
-                        borderRadius: "10px",
-                        background: "#333",
-                        color: "#fff",
-                    },
-                });
-            });
+        
+                emailjs.sendForm('service_i4v6154', 'template_rxijsh6', form.current, 'user_Y67x4ITrAVSdzzkkghXDx')
+                    .then((result) => {
+                        toast.dismiss(loading);
+                        Swal.fire(
+                            'send!',
+                            'Your Message has been send.',
+                            'success'
+                          )
+                    }, (error) => {
+                        toast.error(error.message, {
+                            style: {
+                                borderRadius: "10px",
+                                background: "#333",
+                                color: "#fff",
+                            },
+                        });
+                    });
+
+             
+            }
+          })
+
+        
     };
     return (
         <div id="contact-content">

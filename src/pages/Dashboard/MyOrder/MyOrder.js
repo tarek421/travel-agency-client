@@ -13,7 +13,6 @@ import useAuth from '../../../Hooks/useAuth';
 const MyOrder = () => {
     const [orderData, setOrderData] = useState([]);
     const { user, token } = useAuth();
-    // console.log(orderStatus);
     
 
     const color = (status) => {

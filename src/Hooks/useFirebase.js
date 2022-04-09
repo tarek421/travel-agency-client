@@ -17,6 +17,7 @@ const useFirebase = () => {
 
     const auth = getAuth();
 
+
     const RegisterUser = (email, password, name) => {
         const loading = "Please Wait...";
         setIsLoading(true)
@@ -81,7 +82,7 @@ const useFirebase = () => {
 
     const UpdateUserName = (name) => {
         updateProfile(auth.currentUser, {
-            displayName: name
+            displayName: name,
         }).then(() => { })
             .catch((error) => { });
     }

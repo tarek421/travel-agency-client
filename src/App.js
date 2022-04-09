@@ -24,6 +24,8 @@ import MyOrder from './pages/Dashboard/MyOrder/MyOrder';
 import Orders from './pages/Dashboard/Orders/Orders';
 import AdminRoute from './pages/Dashboard/AdminRoute/AdminRoute';
 import AddRivews from './pages/Dashboard/AddRivews/AddRivews';
+import AdminList from './pages/Dashboard/AdminList/AdminList';
+import DestinationControl from './pages/Dashboard/DestinationControl/DestinationControl';
 
 export const userContext = createContext();
 
@@ -59,6 +61,8 @@ function App() {
             </AdminRoute>} />
             <Route path="myOrder" element={<MyOrder />} />
             <Route path="addRivew" element={<AddRivews />} />
+            <Route path="adminList" element={<AdminList />} />
+            <Route path="destinaitonList" element={<DestinationControl/>} />
             <Route path="orders" element={<AdminRoute>
               <Orders />
             </AdminRoute>} />

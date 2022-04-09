@@ -9,12 +9,14 @@ const MakeAdmin = () => {
   const { token } = useAuth();
   const [lodding, setLodding] = useState(false);
 
+
   const handleChange = (e) => {
     setEmail(e.target.value);
   };
   const handleSubmit = (e) => {
     setLodding(true)
     e.preventDefault();
+    
     const user = { email };
     fetch("https://quiet-citadel-61809.herokuapp.com/users/admin", {
       method: "PUT",
@@ -26,15 +28,16 @@ const MakeAdmin = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setLodding(false)
+        setLodding(false);
         setSuccess(true);
-        console.log(data);
+      }).finally(() => {
+        
       });
   };
   return (
     <div id="makeAdmin">
       <h2 className="text-center mb-5">Make an Admin</h2>
-      {   
+      {
         lodding && <CircularProgress />
       }
       <form onSubmit={handleSubmit}>

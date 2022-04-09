@@ -102,3 +102,8 @@
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   }
+
+  #profile a{
+    color:#111;
+    text-decoration: none;
+  }

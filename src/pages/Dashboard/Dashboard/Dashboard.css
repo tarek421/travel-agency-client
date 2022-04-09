@@ -3,6 +3,10 @@
     background-color: #525252 !important
 } */
 
+.dashboard{
+    width: 100%;
+}
+
 .dashboard a:hover {
     color: #fff;
 }

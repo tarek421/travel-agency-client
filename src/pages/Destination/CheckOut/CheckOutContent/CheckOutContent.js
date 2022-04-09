@@ -39,7 +39,6 @@ const CheckOutContent = ({ title }) => {
             price: totalprice, 
             status: 'pending',
         }
-        console.log(userInfo);
         const url = `https://quiet-citadel-61809.herokuapp.com/orders`;
         fetch(url, {
             method: 'POST',

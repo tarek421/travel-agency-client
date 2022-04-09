@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut, updateProfile, getIdToken } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signInWithPopup, FacebookAuthProvider, GoogleAuthProvider, signOut, updateProfile, getIdToken } from "firebase/auth";
 import initializeAuthentication from '../Firebase/firebase.init';
 import { useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast';
@@ -12,10 +12,20 @@ const useFirebase = () => {
     const [authError, setAuthError] = useState("");
     const [admin, setAdmin] = useState(false);
     const [token, setToken] = useState('');
+    const [administer, setAdminister] = useState([]);
+
 
     let navigate = useNavigate();
 
     const auth = getAuth();
+
+
+
+    useEffect(() => {
+        fetch(`https://quiet-citadel-61809.herokuapp.com/users?email=${user.email}`)
+            .then(res => res.json())
+            .then(data => setAdminister(data[0]))
+    }, [user.email])
 
 
     const RegisterUser = (email, password, name) => {
@@ -80,69 +90,86 @@ const useFirebase = () => {
             .finally(() => { setIsLoading(false) })
     }
 
-    const UpdateUserName = (name) => {
-        updateProfile(auth.currentUser, {
-            displayName: name,
-        }).then(() => { })
-            .catch((error) => { });
-    }
-
-    useEffect(() => {
-        const unSubscribed = onAuthStateChanged(auth, (user) => {
-            if (user) {
+    const facebookSignIn = () => {
+        const facebookProvider = new FacebookAuthProvider();
+        signInWithPopup(auth, facebookProvider)
+            .then((result) => {
+                const user = result.user;
                 setUser(user);
-                getIdToken(user)
-                  .then((idToken) => {
-                    setToken(idToken);
-                  })
-                  .catch((error) => {
-                    console.log(error);
-                  });
-              } else {
-                setUser({});
-              }
-        });
-        return () => unSubscribed;
-    }, [auth])
+                saveToDatabase(result.user.email, result.user.displayName, "PUT");
+                navigate('/home');
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setAuthError(errorMessage);
+                toast.error(errorMessage)
+            });
+        }
 
-    useEffect(() => {
-        fetch(`https://quiet-citadel-61809.herokuapp.com/user/${user.email}`)
-          .then((res) => res.json())
-          .then((data) => setAdmin(data.admin));
-      }, [user.email]);
+        const UpdateUserName = (name) => {
+            updateProfile(auth.currentUser, {
+                displayName: name,
+            }).then(() => { })
+                .catch((error) => { });
+        }
+
+        useEffect(() => {
+            const unSubscribed = onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    setUser(user);
+                    getIdToken(user)
+                        .then((idToken) => {
+                            setToken(idToken);
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+                } else {
+                    setUser({});
+                }
+            });
+            return () => unSubscribed;
+        }, [auth])
+
+        useEffect(() => {
+            fetch(`https://quiet-citadel-61809.herokuapp.com/user/${user.email}`)
+                .then((res) => res.json())
+                .then((data) => setAdmin(data.admin));
+        }, [user.email]);
 
 
-    const logout = () => {
-        setIsLoading(true);
-        signOut(auth)
-            .then(() => { })
-            .catch((error) => { })
-            .finally(() => setIsLoading(false));
+        const logout = () => {
+            setIsLoading(true);
+            signOut(auth)
+                .then(() => { })
+                .catch((error) => { })
+                .finally(() => setIsLoading(false));
+        };
+
+        const saveToDatabase = (email, displayName, method) => {
+            const user = { email, displayName };
+            const url = `https://quiet-citadel-61809.herokuapp.com/users`
+            fetch(url, {
+                method: method,
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(user)
+            })
+        }
+
+
+        return {
+            user,
+            admin,
+            RegisterUser,
+            signInUser,
+            googleSignIn,
+            logout,
+            isLoading,
+            token,
+            authError,
+            administer,
+            facebookSignIn
+        };
     };
 
-    const saveToDatabase = (email, displayName, method) => {
-        const user = { email, displayName };
-        const url = `https://quiet-citadel-61809.herokuapp.com/users`
-        fetch(url,{
-            method: method,
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(user)
-        })
-    }
-
-
-    return {
-        user,
-        admin,
-        RegisterUser,
-        signInUser,
-        googleSignIn,
-        logout,
-        isLoading,
-        token,
-        authError,
-
-    };
-};
-
-export default useFirebase;
+    export default useFirebase;

@@ -1,4 +1,4 @@
-import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -7,7 +7,7 @@ import './Login.css';
 
 const Login = () => {
 
-  const { RegisterUser, signInUser, googleSignIn } = useAuth();
+  const { RegisterUser, signInUser, googleSignIn, facebookSignIn } = useAuth();
   const { register: registerSignIn, handleSubmit: handleSignIn } = useForm();
   const { register: registerSignUp, handleSubmit: handleSignUp } = useForm();
 
@@ -17,6 +17,10 @@ const Login = () => {
 
   const HandleGoogleSignIn = () => {
     googleSignIn();
+  };
+
+  const handleFacebookSignIn = () => {
+    facebookSignIn();
   }
 
   const onSubmit = (data) => {
@@ -85,13 +89,13 @@ const Login = () => {
                     icon={faGoogle}
                   />
                 </li>
-                {/* <li>
+                <li>
                   <FontAwesomeIcon
-                    onClick={facebookSignIn}
+                    onClick={handleFacebookSignIn}
                     className="social"
                     icon={faFacebookF}
                   />
-                </li> */}
+                </li>
                 {/* <li>
                 <FontAwesomeIcon
                   onClick={githubSignIn}

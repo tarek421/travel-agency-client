@@ -61,10 +61,7 @@ const UserProfile = () => {
                     <Typography textAlign="center">Profile</Typography>
                   </MenuItem>
                   <MenuItem>
-                    <Typography textAlign="center">Account</Typography>
-                  </MenuItem>
-                  <MenuItem>
-                  <Link to="/dashboard/myOrder" className={(navInfo) => (navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link")} tabIndex="-1">Dashboard</Link>
+                  <Typography as={Link} to="/dashboard/myOrder" className={(navInfo) => (navInfo.isActive ? "active nav-item nav-link" : "nav-item nav-link")} tabIndex="-1">Dashboard</Typography>
                   </MenuItem>
                   <MenuItem onClick={handleLogOut}>
                     <Typography textAlign="center">Logout</Typography>

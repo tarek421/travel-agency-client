@@ -103,7 +103,7 @@
     .sidenav a {font-size: 18px;}
   }
 
-  #profile a{
-    color:#111;
+  #profile li a {
+    color: #343a40 !important;
     text-decoration: none;
-  }
+}

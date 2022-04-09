@@ -1,23 +1,40 @@
-import { Alert, Button, CircularProgress, TextField } from "@mui/material";
+import { Button, TextField } from "@mui/material";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 import useAuth from "../../../Hooks/useAuth";
 import './MakeAdmin.css';
 
 const MakeAdmin = () => {
   const [email, setEmail] = useState("");
-  const [success, setSuccess] = useState(false);
   const { token } = useAuth();
-  const [lodding, setLodding] = useState(false);
 
 
   const handleChange = (e) => {
     setEmail(e.target.value);
   };
+
   const handleSubmit = (e) => {
-    setLodding(true)
     e.preventDefault();
-    
-    const user = { email };
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Make it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const loading = toast.loading("Please wait...", {
+          style: {
+              borderRadius: "10px",
+              background: "#333",
+              color: "#fff",
+          },
+      });
+        const user = { email };
     fetch("https://quiet-citadel-61809.herokuapp.com/users/admin", {
       method: "PUT",
       headers: {
@@ -28,18 +45,21 @@ const MakeAdmin = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setLodding(false);
-        setSuccess(true);
+        toast.dismiss(loading);
+        Swal.fire(
+          'Maked!',
+          'made admin successfully!.',
+          'success'
+        )
       }).finally(() => {
         
       });
+      }
+    })
   };
   return (
     <div id="makeAdmin">
       <h2 className="text-center mb-5">Make an Admin</h2>
-      {
-        lodding && <CircularProgress />
-      }
       <form onSubmit={handleSubmit}>
         <TextField
           type="email"
@@ -51,20 +71,6 @@ const MakeAdmin = () => {
         <Button type="submit" sx={{ height: "55px" }} variant="contained">
           Make Admin
         </Button>
-        {success && (
-          <Alert
-            sx={{
-              width: "50%",
-              margin: "auto",
-              background: "#2d377bab",
-              color: "white",
-              marginTop: "5px",
-            }}
-            severity="success"
-          >
-            made admin successfully!
-          </Alert>
-        )}
       </form>
     </div>
   );

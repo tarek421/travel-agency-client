@@ -9,17 +9,11 @@ import Swal from 'sweetalert2';
 
 const AdminList = () => {
     const [adminList, setAdminList] = useState([]);
-    const { token, user } = useAuth();
-    const [administer, setAdminister] = useState([]);
+    const { token, administer } = useAuth();
 
 
 
 
-    useEffect(() => {
-        fetch(`https://quiet-citadel-61809.herokuapp.com/users?email=${user.email}`)
-            .then(res => res.json())
-            .then(data => setAdminister(data[0]))
-    }, [user.email])
 
     useEffect(() => {
         const url = `https://quiet-citadel-61809.herokuapp.com/admins`;
@@ -29,51 +23,64 @@ const AdminList = () => {
     }, []);
 
 
+
+
     const handleDelete = (email, role) => {
-        if (administer.role === "administer") {
-            const loading = toast.loading("Please wait...", {
-                style: {
-                    borderRadius: "10px",
-                    background: "#333",
-                    color: "#fff",
-                },
-            });
-            const user = { email };
-            fetch("https://quiet-citadel-61809.herokuapp.com/admin/remove", {
-                method: "PUT",
-                headers: {
-                    "content-type": "application/json",
-                    "authorization": `Bearer ${token}`,
-                },
-                body: JSON.stringify(user),
-            })
-                .then((res) => res.json())
-                .then((data) => {
-                    toast.dismiss(loading);
-                    toast.success("Successfully Remove Admin from Admin Panel!", {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                if (administer.role === "administer") {
+                    const loading = toast.loading("Please wait...", {
                         style: {
                             borderRadius: "10px",
                             background: "#333",
                             color: "#fff",
                         },
                     });
-                })
-                .catch(error => {
-                    toast.error(error.message, {
-                        style: {
-                            borderRadius: "10px",
-                            background: "#333",
-                            color: "#fff",
+                    const user = { email };
+                    fetch("https://quiet-citadel-61809.herokuapp.com/admin/remove", {
+                        method: "PUT",
+                        headers: {
+                            "content-type": "application/json",
+                            "authorization": `Bearer ${token}`,
                         },
-                    });
-                })
-        } else {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'Only Administer Can Remove Admin!',
-              })
-        }
+                        body: JSON.stringify(user),
+                    })
+                        .then((res) => res.json())
+                        .then((data) => {
+                            toast.dismiss(loading);
+                            Swal.fire(
+                                'Deleted!',
+                                'Admin Remove successfully.',
+                                'success'
+                            )
+                        })
+                        .catch(error => {
+                            toast.error(error.message, {
+                                style: {
+                                    borderRadius: "10px",
+                                    background: "#333",
+                                    color: "#fff",
+                                },
+                            });
+                        })
+
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Only Administer Can Remove Admin!',
+                    })
+                }
+            }
+        })
     }
 
     return (

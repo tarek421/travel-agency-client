@@ -7,7 +7,7 @@ import './Login.css';
 
 const Login = () => {
 
-  const { user, RegisterUser, signInUser, googleSignIn } = useAuth();
+  const { RegisterUser, signInUser, googleSignIn } = useAuth();
   const { register: registerSignIn, handleSubmit: handleSignIn } = useForm();
   const { register: registerSignUp, handleSubmit: handleSignUp } = useForm();
 

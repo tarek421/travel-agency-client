@@ -10,7 +10,7 @@ import {
     Typography,
   } from "@mui/material";
 import useAuth from '../../../Hooks/useAuth';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const UserProfile = () => {
     const {user, logout} = useAuth();

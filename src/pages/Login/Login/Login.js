@@ -96,23 +96,18 @@ const Login = () => {
                     icon={faFacebookF}
                   />
                 </li>
-                {/* <li>
-                <FontAwesomeIcon
-                  onClick={githubSignIn}
-                  className="social"
-                  icon={faGithub}
-                />
-              </li> */}
               </div>
               <span>or use your account</span>
               <input
                 placeholder="Email"
                 {...registerSignIn("email", { required: true })}
+                defaultValue="admin@gmail.com"
                 type="email"
               />
               <input
                 placeholder="Password"
                 {...registerSignIn("password", { required: true })}
+                defaultValue="admin0"
                 type="password"
               />
               <small style={{ color: "blue", cursor: "pointer" }}>

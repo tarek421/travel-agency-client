@@ -45,10 +45,10 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/checkOut/:title" element={<CheckOut />} />
-          <Route path="/destination/:title" element={<PrivetRoute>
-            <DestinationDetail />
+          <Route path="/checkOut/:title" element={<PrivetRoute>
+            <CheckOut />
           </PrivetRoute>} />
+          <Route path="/destination/:title" element={<DestinationDetail />} />
 
           <Route path="/destination" element={<PrivetRoute>
             <Destination />

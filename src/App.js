@@ -46,13 +46,16 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/login" element={<Login />} />
           <Route path="/checkOut/:title" element={<CheckOut />} />
-          <Route path="/destination/:title" element={<DestinationDetail />} />
+          <Route path="/destination/:title" element={<PrivetRoute>
+            <DestinationDetail />
+          </PrivetRoute>} />
 
           <Route path="/destination" element={<PrivetRoute>
             <Destination />
           </PrivetRoute>} />
 
-          <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="/dashboard" element={<PrivetRoute>
+            <Route path="/dashboard" element={<Dashboard />}>
             <Route path="makeAdmin" element={<AdminRoute>
               <MakeAdmin />
             </AdminRoute>} />
@@ -67,6 +70,7 @@ function App() {
               <Orders />
             </AdminRoute>} />
           </Route>
+          </PrivetRoute>} />
 
         </Routes>
       </userContext.Provider>

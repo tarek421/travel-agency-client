@@ -50,9 +50,7 @@ function App() {
           </PrivetRoute>} />
           <Route path="/destination/:title" element={<DestinationDetail />} />
 
-          <Route path="/destination" element={<PrivetRoute>
-            <Destination />
-          </PrivetRoute>} />
+          <Route path="/destination" element={<Destination />}/>
 
           <Route path="/dashboard" element={<PrivetRoute>
             <Route path="/dashboard" element={<Dashboard />}>

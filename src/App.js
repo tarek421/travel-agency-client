@@ -50,25 +50,23 @@ function App() {
           </PrivetRoute>} />
           <Route path="/destination/:title" element={<DestinationDetail />} />
 
-          <Route path="/destination" element={<Destination />}/>
+          <Route path="/destination" element={<Destination />} />
 
-          <Route path="/dashboard" element={<PrivetRoute>
-            <Route path="/dashboard" element={<Dashboard />}>
-            <Route path="makeAdmin" element={<AdminRoute>
-              <MakeAdmin />
-            </AdminRoute>} />
-            <Route path="addDestination" element={<AdminRoute>
-              <AddDestinaton />
-            </AdminRoute>} />
-            <Route path="myOrder" element={<MyOrder />} />
-            <Route path="addRivew" element={<AddRivews />} />
-            <Route path="adminList" element={<AdminList />} />
-            <Route path="destinaitonList" element={<DestinationControl/>} />
-            <Route path="orders" element={<AdminRoute>
-              <Orders />
-            </AdminRoute>} />
-          </Route>
-          </PrivetRoute>} />
+          <Route path="/dashboard" element={<Dashboard />}>
+              <Route path="makeAdmin" element={<AdminRoute>
+                <MakeAdmin />
+              </AdminRoute>} />
+              <Route path="addDestination" element={<AdminRoute>
+                <AddDestinaton />
+              </AdminRoute>} />
+              <Route path="myOrder" element={<MyOrder />} />
+              <Route path="addRivew" element={<AddRivews />} />
+              <Route path="adminList" element={<AdminList />} />
+              <Route path="destinaitonList" element={<DestinationControl />} />
+              <Route path="orders" element={<AdminRoute>
+                <Orders />
+              </AdminRoute>} />
+            </Route>
 
         </Routes>
       </userContext.Provider>

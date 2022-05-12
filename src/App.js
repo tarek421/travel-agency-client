@@ -32,7 +32,7 @@ export const userContext = createContext();
 function App() {
 
   const [adult, setAdult] = useState(1);
-  const [children, setChildren] = useState(1);
+  const [children, setChildren] = useState(0);
 
   return (
     <AuthProvider>

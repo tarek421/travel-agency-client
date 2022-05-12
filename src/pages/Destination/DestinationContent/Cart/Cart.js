@@ -22,7 +22,7 @@ const Cart = ({ title }) => {
                         <div className="adults">
                             <small>Adults</small>
                             <div className="mt-3">
-                                <button onClick={() => { setAdult(adult - 1) }}>-</button>
+                                <button onClick={() => { if(adult > 1){setAdult(adult - 1)} }}>-</button>
                                 <span>{adult}</span>
                                 <button onClick={() => { setAdult(adult + 1) }}>+</button>
                             </div>
@@ -30,7 +30,7 @@ const Cart = ({ title }) => {
                         <div className="children">
                             <small>Children</small>
                             <div className="mt-3">
-                                <button onClick={() => { setChildren(children - 1) }}>-</button>
+                                <button onClick={() => { if(children > 0){setChildren(children - 1)} }}>-</button>
                                 <span>{children}</span>
                                 <button onClick={() => { setChildren(children + 1) }}>+</button>
                             </div>

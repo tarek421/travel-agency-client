@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import shape from '../../../image/shape.png'
+import Loader from '../../Shared/Loader/Loader';
 import Destination from '../Destination/Destination';
 import './Destinatons.css';
 
@@ -19,7 +20,7 @@ const Destinations = () => {
                 <img src={shape} alt="" />
                 <div className="row mt-5">
                     {
-                        destinations.map(destination => <Destination destination={destination} key={destination._id}></Destination>)
+                        destinations ? destinations.map(destination => <Destination destination={destination} key={destination._id}></Destination>) : <Loader/>
                     }
                 </div>
             </div>

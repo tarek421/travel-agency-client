@@ -13,6 +13,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation, Autoplay } from "swiper";
+import Loader from '../../Shared/Loader/Loader';
 
 const Testimonial = () => {
 
@@ -76,7 +77,7 @@ const Testimonial = () => {
 
 
             {
-              rivews.map(rivew => <SwiperSlide key={rivew.id}>
+              rivews?rivews.map(rivew => <SwiperSlide key={rivew.id}>
                 <div>
 
                   <p>{rivew.rivew}</p>
@@ -84,7 +85,7 @@ const Testimonial = () => {
                   <h6 className='mt-3'>{rivew.name}</h6>
                   <Ratings star={rivew.star} />
                 </div>
-              </SwiperSlide>)
+              </SwiperSlide>) : <Loader />
             }
           </Swiper>
         </div>

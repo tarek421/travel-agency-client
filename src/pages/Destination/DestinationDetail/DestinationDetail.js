@@ -8,11 +8,11 @@ import DestinationContent from '../DestinationContent/DestinationContent/Destina
 const DestinationDetail = () => {
     const [destination, setDestination] = useState([]);
     const { title } = useParams();
-    useEffect(()=>{
-        fetch(`https://quiet-citadel-61809.herokuapp.com/destination?title=${title}`)
-        .then(res => res.json())
-        .then(data => setDestination(data[0]))
-    },[title])
+    useEffect(() => {
+        fetch(`https://dark-gaiters-slug.cyclic.app/destination?title=${title}`)
+            .then(res => res.json())
+            .then(data => setDestination(data[0]))
+    }, [title])
 
     return (
         <div>

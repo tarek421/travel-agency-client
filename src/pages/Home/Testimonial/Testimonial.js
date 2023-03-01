@@ -21,7 +21,7 @@ const Testimonial = () => {
 
 
   useEffect(() => {
-    fetch(`https://quiet-citadel-61809.herokuapp.com/rivews`)
+    fetch(`https://dark-gaiters-slug.cyclic.app/rivews`)
       .then(res => res.json())
       .then(data => setRivews(data))
   }, [])
@@ -46,10 +46,10 @@ const Testimonial = () => {
     const ua = navigator.userAgent;
     if (/Mobile|Android|iP(hone|od)|IEMobile|BlackBerry|Kindle|Silk-Accelerated|(hpw|web)OS|Opera M(obi|ini)/.test(ua)) {
       return 1;
-    }else{
+    } else {
       return 3;
     }
-};
+  };
 
 
   return (
@@ -77,7 +77,7 @@ const Testimonial = () => {
 
 
             {
-              rivews?rivews.map(rivew => <SwiperSlide key={rivew.id}>
+              rivews ? rivews.map(rivew => <SwiperSlide key={rivew.id}>
                 <div>
 
                   <p>{rivew.rivew}</p>

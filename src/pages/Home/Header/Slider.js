@@ -46,7 +46,7 @@ const Slider = () => {
           <div className="slider2">
             <div className="content">
                 <h1>ADVENTURE IS <span>WORTHWHILE</span></h1>
-              <h5>For my part, I travel not to go anywhere, I travel for travel shake. The great affeir is to move.</h5>
+                <h5>For my part, I travel not to go anywhere, I travel for travel shake. The great affeir is to move.</h5>
             </div>
           </div>
         </SwiperSlide>

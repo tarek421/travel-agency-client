@@ -24,11 +24,11 @@ const Orders = () => {
     // OrderData.map(order => setOrderBg(order.status));
 
     const color = (status) => {
-        if(status==='approved') {
+        if (status === 'approved') {
             return 'green';
-        }else if(status==='rejected'){
+        } else if (status === 'rejected') {
             return 'red'
-        }else{
+        } else {
             return '#48525b'
         }
     }
@@ -36,7 +36,7 @@ const Orders = () => {
 
 
     useEffect(() => {
-        const url = `https://quiet-citadel-61809.herokuapp.com/orders`;
+        const url = `https://dark-gaiters-slug.cyclic.app/orders`;
         fetch(url, {
             method: 'GET',
             headers: {
@@ -73,7 +73,7 @@ const Orders = () => {
     }
 
     useEffect(() => {
-        const url = `https://quiet-citadel-61809.herokuapp.com/orders/status`;
+        const url = `https://dark-gaiters-slug.cyclic.app/orders/status`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -119,7 +119,7 @@ const Orders = () => {
                                     <TableCell align="left">{row.price}</TableCell>
                                     <TableCell align="center">
 
-                                        <select style={{backgroundColor:`${color(row.status)}`}} onChange={(e) => handleChange(e, row._id)} name="option" id="option">
+                                        <select style={{ backgroundColor: `${color(row.status)}` }} onChange={(e) => handleChange(e, row._id)} name="option" id="option">
                                             <option value="" selected disabled hidden>{row.status}</option>
                                             <option value="pending">Pending</option>
                                             <option value="approved">Approve</option>
@@ -141,7 +141,7 @@ const Orders = () => {
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
             />
-          
+
         </Paper>
     );
 };

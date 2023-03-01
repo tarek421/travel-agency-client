@@ -11,7 +11,7 @@ const CheckOutContent = ({ title }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [adult, children] = useContext(userContext);
     const { user } = useAuth();
-    const totalprice = adult*320 + children*250;
+    const totalprice = adult * 320 + children * 250;
 
     const navigate = useNavigate();
 
@@ -36,10 +36,10 @@ const CheckOutContent = ({ title }) => {
             comment: data.comment,
             adultPerson: adult,
             childrenPerson: children,
-            price: totalprice, 
+            price: totalprice,
             status: 'pending',
         }
-        const url = `https://quiet-citadel-61809.herokuapp.com/orders`;
+        const url = `https://dark-gaiters-slug.cyclic.app/orders`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -74,18 +74,18 @@ const CheckOutContent = ({ title }) => {
                                 <div className="w-50 px-2">
                                     <p>Full Name</p>
                                     <input placeholder="Full Name"
-                                    {...register("fullName", { required: true })}
-                                    value={user.displayName}
-                                     />
+                                        {...register("fullName", { required: true })}
+                                        value={user.displayName}
+                                    />
                                     {errors.fullName && <span>This field is required</span>}
                                 </div>
 
                                 <div className="w-50 px-2">
                                     <p>Total Price</p>
-                                    <input 
-                                    value={totalprice}
-                                    readonly
-                                     />
+                                    <input
+                                        value={totalprice}
+                                        readonly
+                                    />
                                 </div>
                             </div>
 
@@ -98,12 +98,12 @@ const CheckOutContent = ({ title }) => {
 
                                 <div className="w-50 px-2">
                                     <p>Email</p>
-                                    <input 
-                                    placeholder="Email"
-                                     {...register("email", 
-                                     { required: true })}
-                                     value={user.email}
-                                     />
+                                    <input
+                                        placeholder="Email"
+                                        {...register("email",
+                                            { required: true })}
+                                        value={user.email}
+                                    />
                                     {errors.email && <span>This field is required</span>}
                                 </div>
                             </div>

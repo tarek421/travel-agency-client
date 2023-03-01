@@ -16,7 +16,7 @@ const AdminList = () => {
 
 
     useEffect(() => {
-        const url = `https://quiet-citadel-61809.herokuapp.com/admins`;
+        const url = `https://dark-gaiters-slug.cyclic.app/admins`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setAdminList(data))
@@ -45,7 +45,7 @@ const AdminList = () => {
                         },
                     });
                     const user = { email };
-                    fetch("https://quiet-citadel-61809.herokuapp.com/admin/remove", {
+                    fetch("https://dark-gaiters-slug.cyclic.app/admin/remove", {
                         method: "PUT",
                         headers: {
                             "content-type": "application/json",

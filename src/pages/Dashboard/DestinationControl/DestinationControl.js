@@ -20,10 +20,10 @@ const DestinationControl = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
 
-                if(administer.role === 'administer') {
+                if (administer.role === 'administer') {
                     const loading = toast.loading("Please wait...", {
                         style: {
                             borderRadius: "10px",
@@ -37,7 +37,7 @@ const DestinationControl = () => {
                             "content-type": "application/json",
                             "authorization": `Bearer ${token}`,
                         }
-                                })
+                    })
                         .then((res) => res.json())
                         .then((data) => {
                             toast.dismiss(loading);
@@ -45,7 +45,7 @@ const DestinationControl = () => {
                                 'Deleted!',
                                 'Your file has been deleted.',
                                 'success'
-                              )
+                            )
                         })
                         .catch(error => {
                             toast.error(error.message, {
@@ -56,22 +56,22 @@ const DestinationControl = () => {
                                 },
                             });
                         })
-                }else{
+                } else {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
                         text: 'Only Administer Can Delete Item!',
-                      })
+                    })
                 }
-              
-            }
-          })
 
-        
+            }
+        })
+
+
     }
 
     console.log(allDestinations)
-    fetch('https://quiet-citadel-61809.herokuapp.com/destinations')
+    fetch('https://dark-gaiters-slug.cyclic.app/destinations')
         .then(res => res.json())
         .then(data => setAllDestinations(data))
     return (
@@ -79,9 +79,9 @@ const DestinationControl = () => {
             <h2>This is a destination control</h2>
             <table>
                 <tr className="text-center">
-                    <th style={{width:'30%'}}>Image</th>
-                    <th style={{width:'50%'}}>Details</th>
-                    <th style={{width:'20%'}}>Action</th>
+                    <th style={{ width: '30%' }}>Image</th>
+                    <th style={{ width: '50%' }}>Details</th>
+                    <th style={{ width: '20%' }}>Action</th>
                 </tr>
                 {
                     allDestinations.map((destination) => <tr>
@@ -92,7 +92,7 @@ const DestinationControl = () => {
                             <p>{destination.opening}</p>
                             <p><Rating name="read-only" value={destination.rating} readOnly /></p>
                         </td>
-                        <td><button onClick={()=>handleDeleteItem(destination._id)} className="btn btn-primary">delete</button></td>
+                        <td><button onClick={() => handleDeleteItem(destination._id)} className="btn btn-primary">delete</button></td>
                     </tr>)
                 }
 

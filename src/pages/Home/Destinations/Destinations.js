@@ -7,7 +7,7 @@ import './Destinatons.css';
 const Destinations = () => {
     const [destinations, setDestinations] = useState([]);
     useEffect(() => {
-        const url = `https://quiet-citadel-61809.herokuapp.com/destinations`;
+        const url = `https://dark-gaiters-slug.cyclic.app/destinations`;
         fetch(url)
             .then(res => res.json())
             .then(data => setDestinations(data))
@@ -20,7 +20,7 @@ const Destinations = () => {
                 <img src={shape} alt="" />
                 <div className="row mt-5">
                     {
-                        destinations ? destinations.map(destination => <Destination destination={destination} key={destination._id}></Destination>) : <Loader/>
+                        destinations ? destinations.map(destination => <Destination destination={destination} key={destination._id}></Destination>) : <Loader />
                     }
                 </div>
             </div>

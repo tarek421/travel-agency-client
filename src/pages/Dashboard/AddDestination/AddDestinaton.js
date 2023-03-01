@@ -37,7 +37,7 @@ const AddDestinaton = () => {
             image2: imageUrl2,
             image3: imageUrl3,
         };
-        const url = `https://quiet-citadel-61809.herokuapp.com/destinations`;
+        const url = `https://dark-gaiters-slug.cyclic.app/destinations`;
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

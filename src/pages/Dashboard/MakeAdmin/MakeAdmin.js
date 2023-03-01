@@ -29,31 +29,31 @@ const MakeAdmin = () => {
       if (result.isConfirmed) {
         const loading = toast.loading("Please wait...", {
           style: {
-              borderRadius: "10px",
-              background: "#333",
-              color: "#fff",
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
           },
-      });
+        });
         const user = { email };
-    fetch("https://quiet-citadel-61809.herokuapp.com/users/admin", {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-        "authorization": `Bearer ${token}`,
-      },
-      body: JSON.stringify(user),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        toast.dismiss(loading);
-        Swal.fire(
-          'Maked!',
-          'made admin successfully!.',
-          'success'
-        )
-      }).finally(() => {
-        
-      });
+        fetch("https://dark-gaiters-slug.cyclic.app/users/admin", {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+            "authorization": `Bearer ${token}`,
+          },
+          body: JSON.stringify(user),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            toast.dismiss(loading);
+            Swal.fire(
+              'Maked!',
+              'made admin successfully!.',
+              'success'
+            )
+          }).finally(() => {
+
+          });
       }
     })
   };

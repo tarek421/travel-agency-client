@@ -13,21 +13,21 @@ import useAuth from '../../../Hooks/useAuth';
 const MyOrder = () => {
     const [orderData, setOrderData] = useState([]);
     const { user, token } = useAuth();
-    
+
 
     const color = (status) => {
-        if(status==='approved') {
+        if (status === 'approved') {
             return 'green';
-        }else if(status==='rejected'){
+        } else if (status === 'rejected') {
             return 'red'
-        }else{
+        } else {
             return '#48525b'
         }
     }
 
 
     useEffect(() => {
-        const url = `https://quiet-citadel-61809.herokuapp.com/order?email=${user.email}`;
+        const url = `https://dark-gaiters-slug.cyclic.app/order?email=${user.email}`;
         fetch(url, {
             method: 'GET',
             headers: {
@@ -84,8 +84,8 @@ const MyOrder = () => {
                                     <TableCell align="center">{row.email}</TableCell>
                                     <TableCell align="left">{row.phone}</TableCell>
                                     <TableCell align="center">{row.price}</TableCell>
-                                    <TableCell align="center"><span clasName="option" style={{backgroundColor:`${color(row.status)}`, color: 'white', borderRadius:'5px', padding:'10px 15px'}} >{row.status}</span></TableCell>
-                                    
+                                    <TableCell align="center"><span clasName="option" style={{ backgroundColor: `${color(row.status)}`, color: 'white', borderRadius: '5px', padding: '10px 15px' }} >{row.status}</span></TableCell>
+
                                 </TableRow>
                             ))}
                     </TableBody>

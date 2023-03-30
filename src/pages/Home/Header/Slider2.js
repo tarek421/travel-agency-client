@@ -166,8 +166,8 @@ const Slider2 = () => {
             const newItem = items[newIndex];
 
             function callback() {
-                currentItem.classList.remove("is-active");
-                newItem.classList.add("is-active");
+                currentItem.classNameList.remove("is-active");
+                newItem.classNameList.add("is-active");
                 current = newIndex;
                 isPlaying = false;
             }
@@ -198,40 +198,40 @@ const Slider2 = () => {
 
 
     return (
-        <div class="slider">
-            <div class="nav">
-                <div class="next"></div>
-                <div class="prev"></div>
+        <div className="slider">
+            <div className="nav">
+                <div className="next"></div>
+                <div className="prev"></div>
             </div>
-            <div class="item is-active">
-                <div class="content">
-                    <div class="wrap">
+            <div className="item is-active">
+                <div className="content">
+                    <div className="wrap">
                         <h1>TAKE <span>YOUR DREAM</span></h1>
                         <h5>Your travel, your life</h5>
                     </div>
                 </div>
-                <div class="imgs">
-                    <div class="grid">
-                        <div class="img img-1"><img src="https://picsum.photos/seed/a/700/700" alt="images" /></div>
-                        <div class="img img-2"><img src="https://picsum.photos/seed/b/700/700" alt="images" /></div>
-                        <div class="img img-3"><img src="https://picsum.photos/seed/c/700/700" alt="images" /></div>
-                        <div class="img img-4"><img src="https://picsum.photos/seed/d/700/700" alt="images" /></div>
+                <div className="imgs">
+                    <div className="grid">
+                        <div className="img img-1"><img src="https://picsum.photos/seed/a/700/700" alt="images" /></div>
+                        <div className="img img-2"><img src="https://picsum.photos/seed/b/700/700" alt="images" /></div>
+                        <div className="img img-3"><img src="https://picsum.photos/seed/c/700/700" alt="images" /></div>
+                        <div className="img img-4"><img src="https://picsum.photos/seed/d/700/700" alt="images" /></div>
                     </div>
                 </div>
             </div>
-            <div class="item">
-                <div class="content">
-                    <div class="wrap">
+            <div className="item">
+                <div className="content">
+                    <div className="wrap">
                         <h1>ADVENTURE IS <span>WORTHWHILE</span></h1>
                         <h5>For my part, I travel not to go anywhere, I travel for travel shake. The great affeir is to move.</h5>
                     </div>
                 </div>
-                <div class="imgs">
-                    <div class="grid">
-                        <div class="img img-1"><img src="https://picsum.photos/seed/e/700/700" alt="images" /></div>
-                        <div class="img img-2"><img src="https://picsum.photos/seed/f/700/700" alt="images" /></div>
-                        <div class="img img-3"><img src="https://picsum.photos/seed/g/700/700" alt="images" /></div>
-                        <div class="img img-4"><img src="https://picsum.photos/seed/h/700/700" alt="images" /></div>
+                <div className="imgs">
+                    <div className="grid">
+                        <div className="img img-1"><img src="https://picsum.photos/seed/e/700/700" alt="images" /></div>
+                        <div className="img img-2"><img src="https://picsum.photos/seed/f/700/700" alt="images" /></div>
+                        <div className="img img-3"><img src="https://picsum.photos/seed/g/700/700" alt="images" /></div>
+                        <div className="img img-4"><img src="https://picsum.photos/seed/h/700/700" alt="images" /></div>
                     </div>
                 </div>
             </div>

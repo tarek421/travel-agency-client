@@ -37,7 +37,7 @@ const AddDestinaton = () => {
             image2: imageUrl2,
             image3: imageUrl3,
         };
-        const url = `https://dark-gaiters-slug.cyclic.app/destinations`;
+        const url = `https://good-puce-sparrow-veil.cyclic.app/destinations`;
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -45,17 +45,16 @@ const AddDestinaton = () => {
         })
             .then(res => res.json())
             .then(data => {
-                if (data.acknowledged) {
-                    toast.dismiss(loading);
-                    toast.success("Successfully Added Destination", {
-                        style: {
-                            borderRadius: "10px",
-                            background: "#333",
-                            color: "#fff",
-                        },
-                    });
-                    navigate('/');
-                }
+                console.log(data);
+                toast.dismiss(loading);
+                toast.success("Successfully Added Destination", {
+                    style: {
+                        borderRadius: "10px",
+                        background: "#333",
+                        color: "#fff",
+                    },
+                });
+                navigate('/');
             })
     };
 
@@ -69,7 +68,7 @@ const AddDestinaton = () => {
         });
         const image = event.target.files[0];
         const imageData = new FormData();
-        imageData.set("key", "c4d02e08b5d3f31e9ab0e3b728b797f2");
+        imageData.set("key", "bceb6fc7400cf49b9247539f272f4343");
         imageData.append("image", image);
 
         axios
@@ -100,7 +99,7 @@ const AddDestinaton = () => {
         });
         const image = event.target.files[0];
         const imageData = new FormData();
-        imageData.set("key", "c4d02e08b5d3f31e9ab0e3b728b797f2");
+        imageData.set("key", "bceb6fc7400cf49b9247539f272f4343");
         imageData.append("image", image);
 
         axios
@@ -131,7 +130,7 @@ const AddDestinaton = () => {
         });
         const image = event.target.files[0];
         const imageData = new FormData();
-        imageData.set("key", "c4d02e08b5d3f31e9ab0e3b728b797f2");
+        imageData.set("key", "bceb6fc7400cf49b9247539f272f4343");
         imageData.append("image", image);
 
         axios

@@ -12,11 +12,8 @@ const AdminList = () => {
     const { token, administer } = useAuth();
 
 
-
-
-
     useEffect(() => {
-        const url = `https://dark-gaiters-slug.cyclic.app/admins`;
+        const url = `https://good-puce-sparrow-veil.cyclic.app/users/admin`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setAdminList(data))
@@ -45,7 +42,7 @@ const AdminList = () => {
                         },
                     });
                     const user = { email };
-                    fetch("https://dark-gaiters-slug.cyclic.app/admin/remove", {
+                    fetch("https://good-puce-sparrow-veil.cyclic.app/admin/remove", {
                         method: "PUT",
                         headers: {
                             "content-type": "application/json",

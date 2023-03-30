@@ -7,7 +7,7 @@ import './Destinatons.css';
 const Destinations = () => {
     const [destinations, setDestinations] = useState([]);
     useEffect(() => {
-        const url = `https://dark-gaiters-slug.cyclic.app/destinations`;
+        const url = `https://good-puce-sparrow-veil.cyclic.app/destinations`;
         fetch(url)
             .then(res => res.json())
             .then(data => setDestinations(data))

@@ -12,19 +12,18 @@ const useFirebase = () => {
     const [authError, setAuthError] = useState("");
     const [admin, setAdmin] = useState(false);
     const [token, setToken] = useState('');
-    const [administer, setAdminister] = useState([]);
-
 
     let navigate = useNavigate();
-
     const auth = getAuth();
-
+    console.log(user, token)
 
 
     useEffect(() => {
-        fetch(`https://dark-gaiters-slug.cyclic.app/users?email=${user.email}`)
+        fetch(`https://good-puce-sparrow-veil.cyclic.app/users/admin/${user.email}`)
             .then(res => res.json())
-            .then(data => setAdminister(data[0]))
+            .then(data => setAdmin(data.admin))
+
+
     }, [user.email])
 
 
@@ -36,7 +35,7 @@ const useFirebase = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 setUser(user);
-                saveToDatabase(email, name, "POST");
+                saveToDatabase(name, email, null, "POST");
                 UpdateUserName(name);
                 navigate('/');
                 toast.dismiss();
@@ -79,7 +78,7 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
-                saveToDatabase(result.user.email, result.user.displayName, "PUT");
+                saveToDatabase(result.user.displayName, result.user.email, result.user.photoURL, "PUT");
                 navigate('/home');
             }).catch((error) => {
                 // Handle Errors here.
@@ -96,7 +95,7 @@ const useFirebase = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
-                saveToDatabase(result.user.email, result.user.displayName, "PUT");
+                saveToDatabase(result.user.displayName, result.user.email, result.user.photoURL, "PUT");
                 navigate('/home');
             })
             .catch((error) => {
@@ -131,12 +130,6 @@ const useFirebase = () => {
         return () => unSubscribed;
     }, [auth])
 
-    useEffect(() => {
-        fetch(`https://dark-gaiters-slug.cyclic.app/user/${user.email}`)
-            .then((res) => res.json())
-            .then((data) => setAdmin(data.admin));
-    }, [user.email]);
-
 
     const logout = () => {
         setIsLoading(true);
@@ -146,9 +139,9 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     };
 
-    const saveToDatabase = (email, displayName, method) => {
-        const user = { email, displayName };
-        const url = `https://dark-gaiters-slug.cyclic.app/users`
+    const saveToDatabase = (displayName, email, photo, method) => {
+        const user = { name: displayName, email, photo, role: 'user' };
+        const url = `https://good-puce-sparrow-veil.cyclic.app/users`
         fetch(url, {
             method: method,
             headers: { "Content-Type": "application/json" },
@@ -167,7 +160,6 @@ const useFirebase = () => {
         isLoading,
         token,
         authError,
-        administer,
         facebookSignIn
     };
 };

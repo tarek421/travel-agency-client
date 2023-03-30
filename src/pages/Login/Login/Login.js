@@ -23,15 +23,18 @@ const Login = () => {
     facebookSignIn();
   }
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
 
-    const {email, password, name } = data;
+    const { email, password, name } = data;
     // RegisterUser(email, password, name);
 
-    if(name && email && password) {
-      RegisterUser(email, password, name);
+    if (name && email && password) {
+      await RegisterUser(email, password, name)
+        .then(() => {
+
+        })
       console.log('register')
-    }else{
+    } else {
       signInUser(email, password);
       console.log("login")
     }

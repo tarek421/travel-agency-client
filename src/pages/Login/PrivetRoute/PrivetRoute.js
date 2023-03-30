@@ -1,10 +1,16 @@
-import React from 'react';
-import { Navigate } from 'react-router-dom';
-import useAuth from '../../../Hooks/useAuth';
+import React from "react";
+import { Navigate, useLocation } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
 
-const PrivetRoute = ({ children }) => {
+const PrivateRoute = ({ children }) => {
     const { user } = useAuth();
-    return user?.email ? children : <Navigate to="/login" />;
+    const location = useLocation();
+    if (!user) {
+        return (
+            <Navigate to="/login" state={{ from: location }} replace={true} />
+        );
+    }
+    return children;
 };
 
-export default PrivetRoute;
+export default PrivateRoute;

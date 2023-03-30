@@ -1,5 +1,5 @@
 import { Rating } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import useAuth from '../../../Hooks/useAuth';
@@ -7,8 +7,14 @@ import './DestinationControl.css';
 
 const DestinationControl = () => {
     const [allDestinations, setAllDestinations] = useState([]);
-    const { administer, token } = useAuth();
-    console.log(administer.role)
+    const { user, token, admin } = useAuth();
+    console.log(admin)
+
+    useEffect(() => {
+        fetch('https://good-puce-sparrow-veil.cyclic.app/users')
+            .then(res => res.json)
+            .then(data => console.log(data))
+    }, [])
 
     const handleDeleteItem = (id) => {
 
@@ -23,7 +29,7 @@ const DestinationControl = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                if (administer.role === 'administer') {
+                if (admin) {
                     const loading = toast.loading("Please wait...", {
                         style: {
                             borderRadius: "10px",
@@ -31,7 +37,7 @@ const DestinationControl = () => {
                             color: "#fff",
                         },
                     });
-                    fetch(`http://localhost:5000/item/delete?id=${id}`, {
+                    fetch(`https://good-puce-sparrow-veil.cyclic.app/destinations/delete?id=${id}`, {
                         method: "DELETE",
                         headers: {
                             "content-type": "application/json",
@@ -60,7 +66,7 @@ const DestinationControl = () => {
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Only Administer Can Delete Item!',
+                        text: 'Only Admin Can Delete Item!',
                     })
                 }
 
@@ -70,8 +76,7 @@ const DestinationControl = () => {
 
     }
 
-    console.log(allDestinations)
-    fetch('https://dark-gaiters-slug.cyclic.app/destinations')
+    fetch('https://good-puce-sparrow-veil.cyclic.app/destinations')
         .then(res => res.json())
         .then(data => setAllDestinations(data))
     return (

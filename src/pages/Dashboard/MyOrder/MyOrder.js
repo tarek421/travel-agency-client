@@ -13,7 +13,8 @@ import useAuth from '../../../Hooks/useAuth';
 const MyOrder = () => {
     const [orderData, setOrderData] = useState([]);
     const { user, token } = useAuth();
-
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(10);
 
     const color = (status) => {
         if (status === 'approved') {
@@ -27,7 +28,7 @@ const MyOrder = () => {
 
 
     useEffect(() => {
-        const url = `https://dark-gaiters-slug.cyclic.app/order?email=${user.email}`;
+        const url = `https://good-puce-sparrow-veil.cyclic.app/orders/${user?.email}`;
         fetch(url, {
             method: 'GET',
             headers: {
@@ -39,10 +40,8 @@ const MyOrder = () => {
             .then(data => {
                 setOrderData(data);
             })
-    }, [user.email, token])
+    }, [user.email, token]);
 
-    const [page, setPage] = React.useState(0);
-    const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -70,21 +69,20 @@ const MyOrder = () => {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {orderData
-                            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                        {orderData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                             .map((row) => (
                                 <TableRow
-                                    key={row._id}
+                                    key={row?._id}
                                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                                 >
                                     <TableCell component="th" scope="row">
-                                        {row.name}
+                                        {row?.name}
                                     </TableCell>
-                                    <TableCell align="left">{row.destinationName}</TableCell>
-                                    <TableCell align="center">{row.email}</TableCell>
-                                    <TableCell align="left">{row.phone}</TableCell>
-                                    <TableCell align="center">{row.price}</TableCell>
-                                    <TableCell align="center"><span clasName="option" style={{ backgroundColor: `${color(row.status)}`, color: 'white', borderRadius: '5px', padding: '10px 15px' }} >{row.status}</span></TableCell>
+                                    <TableCell align="left">{row?.destinationName}</TableCell>
+                                    <TableCell align="center">{row?.email}</TableCell>
+                                    <TableCell align="left">{row?.phone}</TableCell>
+                                    <TableCell align="center">{row?.price}</TableCell>
+                                    <TableCell align="center"><span clasName="option" style={{ backgroundColor: `${color(row.status)}`, color: 'white', borderRadius: '5px', padding: '10px 15px' }} >{row?.status}</span></TableCell>
 
                                 </TableRow>
                             ))}
@@ -94,7 +92,7 @@ const MyOrder = () => {
             <TablePagination
                 rowsPerPageOptions={[5, 10, 20]}
                 component="div"
-                count={orderData.length}
+                count={orderData?.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}

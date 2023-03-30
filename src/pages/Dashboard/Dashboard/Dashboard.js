@@ -10,21 +10,19 @@ import useAuth from '../../../Hooks/useAuth';
 
 const Dashboard = () => {
     const { user, admin } = useAuth();
-    console.log(user)
-
     return (
         <div className='d-flex dashboard'>
-            <div className="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark" style={{ width: '250px', position:'fixed', overflowY:'scroll' }}><Link className="mx-auto" to="/home"><img src={logo} alt="" /></Link>
+            <div className="d-flex flex-column vh-100 flex-shrink-0 p-3 text-white bg-dark" style={{ width: '250px', position: 'fixed', overflowY: 'scroll' }}><Link className="mx-auto" to="/home"><img src={logo} alt="" /></Link>
                 <hr />
                 <ul className="nav nav-pills flex-column mb-auto">
 
                     {
                         user?.email && admin ? " " : <li>
-                        <NavLink to="myOrder" className={(navInfo) => navInfo.isActive ? classes.active : "nav-link text-white"}>
-                            <FontAwesomeIcon className='text-danger' icon={faFirstOrderAlt} />
-                            <span className="ms-2">My Orders</span>
-                        </NavLink>
-                    </li>
+                            <NavLink to="myOrder" className={(navInfo) => navInfo.isActive ? classes.active : "nav-link text-white"}>
+                                <FontAwesomeIcon className='text-danger' icon={faFirstOrderAlt} />
+                                <span className="ms-2">My Orders</span>
+                            </NavLink>
+                        </li>
                     }
 
                     {user?.email && admin ? <li>
@@ -66,11 +64,11 @@ const Dashboard = () => {
 
                     {
                         user?.email && admin ? '' : <li>
-                        <NavLink to="addRivew" className={(navInfo) => navInfo.isActive ? classes.active : "nav-link text-white"}>
-                            <FontAwesomeIcon className='text-danger' icon={faSquarePlus} />
-                            <span className="ms-2">Add Rivew</span>
-                        </NavLink>
-                    </li>
+                            <NavLink to="addRivew" className={(navInfo) => navInfo.isActive ? classes.active : "nav-link text-white"}>
+                                <FontAwesomeIcon className='text-danger' icon={faSquarePlus} />
+                                <span className="ms-2">Add Rivew</span>
+                            </NavLink>
+                        </li>
                     }
 
                 </ul>
@@ -88,7 +86,7 @@ const Dashboard = () => {
                     </ul>
                 </div>
             </div>
-            <div style={{width: '100%', marginLeft: '250px', position:'relative'}}>
+            <div style={{ width: '100%', marginLeft: '250px', position: 'relative' }}>
 
 
 

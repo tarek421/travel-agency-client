@@ -80,7 +80,7 @@ const AdminList = () => {
 
     return (
         <div id="admin-List">
-            <h2 className="text-center">Admin List</h2>
+            <h2 className="text-center">Users List</h2>
             <div className="Admin-content">
                 <table>
                     <tr>

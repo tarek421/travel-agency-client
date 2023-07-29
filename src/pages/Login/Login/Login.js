@@ -110,7 +110,7 @@ const Login = () => {
               <input
                 placeholder="Password"
                 {...registerSignIn("password", { required: true })}
-                defaultValue="admin0"
+                defaultValue="admin420"
                 type="password"
               />
               <small style={{ color: "blue", cursor: "pointer" }}>

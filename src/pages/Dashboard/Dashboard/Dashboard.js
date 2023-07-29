@@ -58,7 +58,7 @@ const Dashboard = () => {
                     {user?.email && admin ? <li>
                         <NavLink to="adminList" className={(navInfo) => navInfo.isActive ? classes.active : "nav-link text-white"}>
                             <FontAwesomeIcon className='text-danger' icon={faSquarePlus} />
-                            <span className="ms-2">Admin List</span>
+                            <span className="ms-2">Users List</span>
                         </NavLink>
                     </li> : ""}
 

@@ -9,7 +9,7 @@ const DestinationDetail = () => {
     const [destination, setDestination] = useState([]);
     const { title } = useParams();
     useEffect(() => {
-        fetch(`https://good-puce-sparrow-veil.cyclic.app/destinations/${title}`)
+        fetch(`https://easy-pear-moth-fez.cyclic.app/destinations/${title}`)
             .then(res => res.json())
             .then(data => setDestination(data[0]))
     }, [title])

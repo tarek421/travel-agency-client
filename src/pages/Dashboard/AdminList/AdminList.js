@@ -2,18 +2,17 @@ import React, { useState, useEffect } from 'react';
 import './AdminList.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
-import useAuth from '../../../Hooks/useAuth';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
+import useAuth from '../../../Hooks/useAuth';
 
 
 const AdminList = () => {
     const [adminList, setAdminList] = useState([]);
-    const { token, administer } = useAuth();
-
-
+    console.log(adminList);
+    const { token, admin } = useAuth();
     useEffect(() => {
-        const url = `https://good-puce-sparrow-veil.cyclic.app/users/admin`;
+        const url = `https://easy-pear-moth-fez.cyclic.app/users`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setAdminList(data))
@@ -22,7 +21,7 @@ const AdminList = () => {
 
 
 
-    const handleDelete = (email, role) => {
+    const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -33,7 +32,7 @@ const AdminList = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                if (administer.role === "administer") {
+                if (admin) {
                     const loading = toast.loading("Please wait...", {
                         style: {
                             borderRadius: "10px",
@@ -41,17 +40,16 @@ const AdminList = () => {
                             color: "#fff",
                         },
                     });
-                    const user = { email };
-                    fetch("https://good-puce-sparrow-veil.cyclic.app/admin/remove", {
-                        method: "PUT",
+                    fetch(`https://easy-pear-moth-fez.cyclic.app/users/${id}`, {
+                        method: "DELETE",
                         headers: {
                             "content-type": "application/json",
                             "authorization": `Bearer ${token}`,
                         },
-                        body: JSON.stringify(user),
                     })
                         .then((res) => res.json())
                         .then((data) => {
+                            console.log(data);
                             toast.dismiss(loading);
                             Swal.fire(
                                 'Deleted!',
@@ -89,19 +87,18 @@ const AdminList = () => {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Role</th>
-                        <th className='text-center'>Remove form Admin</th>
+                        <th className='text-center'>Remove User</th>
                     </tr>
 
                     {
-                        adminList.map((admin) => <tr>
-                            <td>{admin.displayName}</td>
+                        adminList.map((admin) => <tr key={admin.id}>
+                            <td>{admin.name}</td>
                             <td>{admin.email}</td>
                             <td>{admin.role}</td>
-                            <td className='text-center'><span onClick={() => handleDelete(admin.email, admin.role)} className='bg-danger'><FontAwesomeIcon icon={faTrashCan} /></span></td>
+                            <td className='text-center'><span onClick={() => handleDelete(admin.id)} className='bg-danger'><FontAwesomeIcon icon={faTrashCan} /></span></td>
                         </tr>
                         )
                     }
-
                 </table>
             </div>
         </div>

@@ -35,7 +35,7 @@ const MakeAdmin = () => {
           },
         });
         const user = { email };
-        fetch("https://good-puce-sparrow-veil.cyclic.app/users/admin", {
+        fetch("http://localhost:4000/users/admin", {
           method: "PUT",
           headers: {
             "content-type": "application/json",

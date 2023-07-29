@@ -30,7 +30,7 @@ const AddRivews = () => {
             photo: user.photoURL || 'https://i.ibb.co/9838Gqy/Daco-5266879.png',
             email: user.email
         }
-        fetch(`https://good-puce-sparrow-veil.cyclic.app/rivews`, {
+        fetch(`https://easy-pear-moth-fez.cyclic.app/rivews`, {
             method: 'POST',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(rivewData)

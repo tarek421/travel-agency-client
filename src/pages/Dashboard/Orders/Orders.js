@@ -36,7 +36,7 @@ const Orders = () => {
 
 
     useEffect(() => {
-        const url = `https://good-puce-sparrow-veil.cyclic.app/orders`;
+        const url = `https://easy-pear-moth-fez.cyclic.app/orders`;
         fetch(url, {
             method: 'GET',
             headers: {
@@ -73,7 +73,7 @@ const Orders = () => {
     }
 
     useEffect(() => {
-        const url = `https://good-puce-sparrow-veil.cyclic.app/orders/status`;
+        const url = `https://easy-pear-moth-fez.cyclic.app/orders/status`;
         fetch(url, {
             method: 'PUT',
             headers: {

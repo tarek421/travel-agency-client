@@ -7,11 +7,11 @@ import './DestinationControl.css';
 
 const DestinationControl = () => {
     const [allDestinations, setAllDestinations] = useState([]);
-    const { user, token, admin } = useAuth();
+    const { token, admin } = useAuth();
     console.log(admin)
 
     useEffect(() => {
-        fetch('https://good-puce-sparrow-veil.cyclic.app/users')
+        fetch('https://easy-pear-moth-fez.cyclic.app/users')
             .then(res => res.json)
             .then(data => console.log(data))
     }, [])
@@ -37,7 +37,7 @@ const DestinationControl = () => {
                             color: "#fff",
                         },
                     });
-                    fetch(`https://good-puce-sparrow-veil.cyclic.app/destinations/delete?id=${id}`, {
+                    fetch(`https://easy-pear-moth-fez.cyclic.app/destinations/delete?id=${id}`, {
                         method: "DELETE",
                         headers: {
                             "content-type": "application/json",
@@ -46,12 +46,22 @@ const DestinationControl = () => {
                     })
                         .then((res) => res.json())
                         .then((data) => {
-                            toast.dismiss(loading);
-                            Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                            )
+                            if (data.acknowledged) {
+                                toast.dismiss(loading);
+                                Swal.fire(
+                                    'Deleted!',
+                                    'Your file has been deleted.',
+                                    'success'
+                                )
+                            } else {
+                                toast.dismiss(loading);
+                                Swal.fire(
+                                    'Not Deleted!',
+                                    'Something Error.',
+                                    'error'
+                                )
+                            }
+
                         })
                         .catch(error => {
                             toast.error(error.message, {
@@ -76,12 +86,11 @@ const DestinationControl = () => {
 
     }
 
-    fetch('https://good-puce-sparrow-veil.cyclic.app/destinations')
+    fetch('https://easy-pear-moth-fez.cyclic.app/destinations')
         .then(res => res.json())
         .then(data => setAllDestinations(data))
     return (
         <div id='destination-control'>
-            <h2>This is a destination control</h2>
             <table>
                 <tr className="text-center">
                     <th style={{ width: '30%' }}>Image</th>
@@ -89,7 +98,7 @@ const DestinationControl = () => {
                     <th style={{ width: '20%' }}>Action</th>
                 </tr>
                 {
-                    allDestinations.map((destination) => <tr>
+                    allDestinations.map((destination) => <tr key={destination.id}>
                         <td><img src={destination.image1} alt="" /></td>
                         <td>
                             <h2>{destination.title}</h2>

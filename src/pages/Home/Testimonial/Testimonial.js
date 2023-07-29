@@ -21,7 +21,7 @@ const Testimonial = () => {
 
 
   useEffect(() => {
-    fetch(`https://good-puce-sparrow-veil.cyclic.app/rivews`)
+    fetch(`https://easy-pear-moth-fez.cyclic.app/rivews`)
       .then(res => res.json())
       .then(data => setRivews(data))
   }, [])

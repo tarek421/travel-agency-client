@@ -15,11 +15,10 @@ const useFirebase = () => {
 
     let navigate = useNavigate();
     const auth = getAuth();
-    console.log(user, token)
 
 
     useEffect(() => {
-        fetch(`https://good-puce-sparrow-veil.cyclic.app/users/admin/${user.email}`)
+        fetch(`https://easy-pear-moth-fez.cyclic.app/users/admin/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
 
@@ -141,7 +140,7 @@ const useFirebase = () => {
 
     const saveToDatabase = (displayName, email, photo, method) => {
         const user = { name: displayName, email, photo, role: 'user' };
-        const url = `https://good-puce-sparrow-veil.cyclic.app/users`
+        const url = `https://easy-pear-moth-fez.cyclic.app/users`
         fetch(url, {
             method: method,
             headers: { "Content-Type": "application/json" },

@@ -37,7 +37,7 @@ const AddDestinaton = () => {
             image2: imageUrl2,
             image3: imageUrl3,
         };
-        const url = `https://good-puce-sparrow-veil.cyclic.app/destinations`;
+        const url = `https://easy-pear-moth-fez.cyclic.app/destinations`;
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

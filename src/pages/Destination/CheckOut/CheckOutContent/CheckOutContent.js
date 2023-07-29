@@ -39,7 +39,7 @@ const CheckOutContent = ({ title }) => {
             price: totalprice,
             status: 'pending',
         }
-        const url = `https://good-puce-sparrow-veil.cyclic.app/orders`;
+        const url = `https://easy-pear-moth-fez.cyclic.app/orders`;
         fetch(url, {
             method: 'POST',
             headers: {

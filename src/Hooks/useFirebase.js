@@ -143,6 +143,7 @@ const useFirebase = () => {
         const url = `https://easy-pear-moth-fez.cyclic.app/users`
         fetch(url, {
             method: method,
+            mode: 'no-cors',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user)
         })

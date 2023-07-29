@@ -39,6 +39,7 @@ const Orders = () => {
         const url = `https://easy-pear-moth-fez.cyclic.app/orders`;
         fetch(url, {
             method: 'GET',
+            mode: 'no-cors',
             headers: {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${token}`,

@@ -18,7 +18,7 @@ const useFirebase = () => {
 
 
     useEffect(() => {
-        fetch(`https://easy-pear-moth-fez.cyclic.app/users/admin/${user.email}`)
+        fetch(`https://travel-agency-server-39xg.onrender.com/users/admin/${user.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
 
@@ -140,10 +140,9 @@ const useFirebase = () => {
 
     const saveToDatabase = (displayName, email, photo, method) => {
         const user = { name: displayName, email, photo, role: 'user' };
-        const url = `https://easy-pear-moth-fez.cyclic.app/users`
+        const url = `https://travel-agency-server-39xg.onrender.com/users`
         fetch(url, {
             method: method,
-            mode: 'no-cors',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user)
         })

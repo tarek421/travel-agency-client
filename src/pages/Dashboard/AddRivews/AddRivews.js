@@ -30,7 +30,7 @@ const AddRivews = () => {
             photo: user.photoURL || 'https://i.ibb.co/9838Gqy/Daco-5266879.png',
             email: user.email
         }
-        fetch(`https://easy-pear-moth-fez.cyclic.app/rivews`, {
+        fetch(`https://travel-agency-server-39xg.onrender.com/rivews`, {
             method: 'POST',
             headers: { "content-type": "application/json" },
             body: JSON.stringify(rivewData)

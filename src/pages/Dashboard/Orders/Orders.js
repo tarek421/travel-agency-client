@@ -18,11 +18,6 @@ const Orders = () => {
     const [OrderData, setOrderData] = useState([]);
     const [orderStatus, setOrderStatus] = useState({});
 
-
-    // const [orderBg, setOrderBg] = useState();
-
-    // OrderData.map(order => setOrderBg(order.status));
-
     const color = (status) => {
         if (status === 'approved') {
             return 'green';
@@ -36,10 +31,9 @@ const Orders = () => {
 
 
     useEffect(() => {
-        const url = `https://easy-pear-moth-fez.cyclic.app/orders`;
+        const url = `https://travel-agency-server-39xg.onrender.com/orders`;
         fetch(url, {
             method: 'GET',
-            mode: 'no-cors',
             headers: {
                 'content-type': 'application/json',
                 'authorization': `Bearer ${token}`,
@@ -74,9 +68,9 @@ const Orders = () => {
     }
 
     useEffect(() => {
-        const url = `https://easy-pear-moth-fez.cyclic.app/orders/status`;
+        const url = `https://travel-agency-server-39xg.onrender.com/orders/status`;
         fetch(url, {
-            method: 'PUT',
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
                 'authorization': `Bearer ${token}`,
@@ -91,7 +85,7 @@ const Orders = () => {
 
     return (
         <Paper sx={{ width: '100%', height: '100vh', overflow: 'hidden' }}>
-            <TableContainer style={{ height: 600, width: "100%" }} component={Paper}>
+            <TableContainer style={{ height: 650, width: "100%" }} component={Paper}>
                 <Table aria-label="simple table">
                     <TableHead>
                         <TableRow>

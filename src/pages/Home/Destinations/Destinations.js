@@ -7,7 +7,7 @@ import './Destinatons.css';
 const Destinations = () => {
     const [destinations, setDestinations] = useState([]);
     useEffect(() => {
-        const url = `https://easy-pear-moth-fez.cyclic.app/destinations`;
+        const url = `https://travel-agency-server-39xg.onrender.com/destinations`;
         fetch(url)
             .then(res => res.json())
             .then(data => setDestinations(data))

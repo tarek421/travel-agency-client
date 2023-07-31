@@ -11,7 +11,7 @@ const DestinationControl = () => {
     console.log(admin)
 
     useEffect(() => {
-        fetch('https://easy-pear-moth-fez.cyclic.app/users')
+        fetch('https://travel-agency-server-39xg.onrender.com/users')
             .then(res => res.json)
             .then(data => console.log(data))
     }, [])
@@ -37,7 +37,7 @@ const DestinationControl = () => {
                             color: "#fff",
                         },
                     });
-                    fetch(`https://easy-pear-moth-fez.cyclic.app/destinations/delete?id=${id}`, {
+                    fetch(`https://travel-agency-server-39xg.onrender.com/destinations/delete?id=${id}`, {
                         method: "DELETE",
                         headers: {
                             "content-type": "application/json",
@@ -86,7 +86,7 @@ const DestinationControl = () => {
 
     }
 
-    fetch('https://easy-pear-moth-fez.cyclic.app/destinations')
+    fetch('https://travel-agency-server-39xg.onrender.com/destinations')
         .then(res => res.json())
         .then(data => setAllDestinations(data))
     return (

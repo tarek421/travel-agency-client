@@ -39,7 +39,7 @@ const CheckOutContent = ({ title }) => {
             price: totalprice,
             status: 'pending',
         }
-        const url = `https://easy-pear-moth-fez.cyclic.app/orders`;
+        const url = `https://travel-agency-server-39xg.onrender.com/orders`;
         fetch(url, {
             method: 'POST',
             headers: {

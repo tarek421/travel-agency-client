@@ -28,7 +28,7 @@ const MyOrder = () => {
 
 
     useEffect(() => {
-        const url = `https://easy-pear-moth-fez.cyclic.app/orders/${user?.email}`;
+        const url = `https://travel-agency-server-39xg.onrender.com/orders/${user?.email}`;
         fetch(url, {
             method: 'GET',
             headers: {

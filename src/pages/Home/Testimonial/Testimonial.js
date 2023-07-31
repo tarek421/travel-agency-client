@@ -21,7 +21,7 @@ const Testimonial = () => {
 
 
   useEffect(() => {
-    fetch(`https://easy-pear-moth-fez.cyclic.app/rivews`)
+    fetch(`https://travel-agency-server-39xg.onrender.com/rivews`)
       .then(res => res.json())
       .then(data => setRivews(data))
   }, [])

@@ -12,7 +12,7 @@ const AdminList = () => {
     console.log(adminList);
     const { token, admin } = useAuth();
     useEffect(() => {
-        const url = `https://easy-pear-moth-fez.cyclic.app/users`;
+        const url = `https://travel-agency-server-39xg.onrender.com/users`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setAdminList(data))
@@ -40,7 +40,7 @@ const AdminList = () => {
                             color: "#fff",
                         },
                     });
-                    fetch(`https://easy-pear-moth-fez.cyclic.app/users/${id}`, {
+                    fetch(`https://travel-agency-server-39xg.onrender.com/users/${id}`, {
                         method: "DELETE",
                         headers: {
                             "content-type": "application/json",

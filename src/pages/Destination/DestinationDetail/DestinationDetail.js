@@ -9,7 +9,7 @@ const DestinationDetail = () => {
     const [destination, setDestination] = useState([]);
     const { title } = useParams();
     useEffect(() => {
-        fetch(`https://easy-pear-moth-fez.cyclic.app/destinations/${title}`)
+        fetch(`https://travel-agency-server-39xg.onrender.com/destinations/${title}`)
             .then(res => res.json())
             .then(data => setDestination(data[0]))
     }, [title])

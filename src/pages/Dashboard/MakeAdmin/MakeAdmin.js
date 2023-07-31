@@ -35,7 +35,7 @@ const MakeAdmin = () => {
           },
         });
         const user = { email };
-        fetch("http://localhost:4000/users/admin", {
+        fetch("https://travel-agency-server-39xg.onrender.com/users/admin", {
           method: "PUT",
           headers: {
             "content-type": "application/json",

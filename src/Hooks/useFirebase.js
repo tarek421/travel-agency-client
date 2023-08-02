@@ -140,7 +140,7 @@ const useFirebase = () => {
 
     const saveToDatabase = (displayName, email, photo, method) => {
         const user = { name: displayName, email, photo, role: 'user' };
-        const url = `https://travel-agency-server-39xg.onrender.com/users`
+        const url = `http://localhost:4000/users`
         fetch(url, {
             method: method,
             headers: { "Content-Type": "application/json" },

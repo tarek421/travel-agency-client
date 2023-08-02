@@ -49,13 +49,22 @@ const AdminList = () => {
                     })
                         .then((res) => res.json())
                         .then((data) => {
-                            console.log(data);
+                            console.log(data.code);
                             toast.dismiss(loading);
-                            Swal.fire(
-                                'Deleted!',
-                                'Admin Remove successfully.',
-                                'success'
-                            )
+
+                            if (data.code === 200) {
+                                Swal.fire(
+                                    'Deleted!',
+                                    'Admin Remove successfully.',
+                                    'success'
+                                )
+                            } else {
+                                Swal.fire(
+                                    'Warning!',
+                                    'Only Administer can remove user',
+                                    'error'
+                                )
+                            }
                         })
                         .catch(error => {
                             toast.error(error.message, {
